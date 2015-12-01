@@ -3,6 +3,7 @@ This repository is for AtCoder Contest.
 To generate the directory for a contest, move to `./tools` and run the script `prepare.py` like below.
 
 `python prepare.py http://arc001.contest.atcoder.jp`
+
 Then move to the generated directory and write the code and compile it.
 
 You can test your compiled file by running the script `./tools/test.py`.
