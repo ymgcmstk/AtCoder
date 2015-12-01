@@ -2,7 +2,7 @@
 # -*- coding:utf-8 -*-
 import os
 # Settings
-ROOT             = '/Users/yamaguchi/myproject/AtCoder/'
+ROOT             = '/path/to/your/rep'
 TOOL_DIR         = os.path.join(ROOT, 'tools')
 ABC_DIR          = os.path.join(ROOT, 'ABC')
 ARC_DIR          = os.path.join(ROOT, 'ARC')
