@@ -69,8 +69,14 @@ def soup_prets(url):
     outputs = []
     for pretag in soup.find_all("pre", attrs={"class": "prettyprint"})[::2]:
         inputs.append(pretag.string.strip().replace(chr(13), ''))
+    if len(inputs) == 0:
+        for pretag in soup.find_all("pre")[1::2]:
+            inputs.append(pretag.string.strip().replace(chr(13), ''))
     for pretag in soup.find_all("pre", attrs={"class": "prettyprint"})[1::2]:
         outputs.append(pretag.string.strip().replace(chr(13), ''))
+    if len(outputs) == 0:
+        for pretag in soup.find_all("pre")[2::2]:
+            outputs.append(pretag.string.strip().replace(chr(13), ''))
     return ("\n" + DELIMITER + "\n").join(inputs), ("\n" + DELIMITER + "\n").join(outputs)
 
 if __name__ == '__main__':
