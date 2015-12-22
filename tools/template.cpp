@@ -13,7 +13,9 @@
 #include <utility>
 
 #define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
 #define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
 #define LL long long
 
 using namespace std;
