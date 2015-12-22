@@ -51,6 +51,6 @@ def main():
         browser.reload()
         cur_status = browser.find_by_xpath('//*[@id="outer-inner"]/table/tbody/tr[1]/td[5]/span').text
     print cur_status + ' ' * 20
-
+    browser.quit()
 if __name__ == '__main__':
     main()
