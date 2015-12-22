@@ -22,7 +22,7 @@ def main():
         url = input()
 
     if not url.startswith('http'):
-        url = 'http://%s.contest.atcoder.jp/' % url
+        url = BASE_URL % url
 
     m = re.search('(https?://)(?P<name>.*)\.contest?', url)
     contest_name = m.group('name')
