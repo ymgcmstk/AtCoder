@@ -24,7 +24,7 @@ def main():
 
     # submit
     submit_url = os.path.join(BASE_URL % contest_name, 'submit')
-    browser.find_by_xpath('//*[@id="outer-inner"]/ul/li[3]/a/span/span[2]').click()
+    browser.visit(os.path.join(BASE_URL % contest_name, 'submit'))
     f = open(f_name, 'r')
     browser.fill('source_code', ''.join(f.read()))
     f.close()
