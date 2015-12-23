@@ -14,6 +14,8 @@ OUTPUT_FILE_NAME = 'output.txt'
 DELIMITER = "---"
 BASE_URL = 'http://%s.contest.atcoder.jp/'
 
+FIRST_INPUT_EXAMPLE = u'入力例1'
+
 # Auto-submission
 USER_NAME = 'XXX'
 PASSWORD  = 'YYY'

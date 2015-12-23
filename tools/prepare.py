@@ -67,15 +67,19 @@ def soup_prets(url):
     soup = BeautifulSoup(page, 'html.parser')
     inputs = []
     outputs = []
-    for pretag in soup.find_all("pre", attrs={"class": "prettyprint"})[::2]:
+    for _h3tag in soup.find_all('h3'):
+        if _h3tag.string.strip() == FIRST_INPUT_EXAMPLE:
+            h3tag = _h3tag
+            break
+    for pretag in h3tag.find_all_next("pre", attrs={"class": "prettyprint"})[::2]:
         inputs.append(pretag.string.strip().replace(chr(13), ''))
     if len(inputs) == 0:
-        for pretag in soup.find_all("pre")[1::2]:
+        for pretag in h3tag.find_all_next("pre")[::2]:
             inputs.append(pretag.string.strip().replace(chr(13), ''))
-    for pretag in soup.find_all("pre", attrs={"class": "prettyprint"})[1::2]:
+    for pretag in h3tag.find_all_next("pre", attrs={"class": "prettyprint"})[1::2]:
         outputs.append(pretag.string.strip().replace(chr(13), ''))
     if len(outputs) == 0:
-        for pretag in soup.find_all("pre")[2::2]:
+        for pretag in h3tag.find_all_next("pre")[1::2]:
             outputs.append(pretag.string.strip().replace(chr(13), ''))
     return ("\n" + DELIMITER + "\n").join(inputs), ("\n" + DELIMITER + "\n").join(outputs)
 
