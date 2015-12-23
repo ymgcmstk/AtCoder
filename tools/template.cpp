@@ -17,7 +17,7 @@
 #define rep(i,n) repd(i,0,n)
 #define mrep(i,n) mrepd(i,0,n)
 #define LL long long
-
+#define BN 1000000007
 using namespace std;
 
 bool boolfunc(bool a, int b){
