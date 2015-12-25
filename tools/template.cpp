@@ -17,21 +17,11 @@
 #define rep(i,n) repd(i,0,n)
 #define mrep(i,n) mrepd(i,0,n)
 #define LL long long
-#define BN 1000000007
+#define MOD 1000000007
 using namespace std;
 
-bool boolfunc(bool a, int b){
-  if (b < 0) return false;
-  else return a;
-}
-
-int input_value(){
-  int a;
-  cin >> a;
-  return a;
-}
-
-void input_array(int * p, int a){
+template <typename T> void input_array(T * p){
+  int a = sizeof(p) / sizeof(p[0]);
   rep(i, a){
     cin >> p[i];
   }
@@ -47,7 +37,7 @@ void input_vector(vector<int> * p, int a){
 
 template <typename T>
 void output(T a, int precision) {
-  if(precision > 0){
+  if (precision > 0) {
     cout << setprecision(precision)  << a << "\n";
   } else {
     cout << a << "\n";
