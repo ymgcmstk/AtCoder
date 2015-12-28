@@ -1,4 +1,4 @@
-This repository is for AtCoder Contest.
+This repository is for AtCoder Contest and partially for Aizu Online Judge.
 
 To generate the directory for a contest, move to `./tools` and run the script `prepare.py` like below.
 
