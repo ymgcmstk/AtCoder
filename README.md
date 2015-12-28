@@ -1,7 +1,7 @@
 # How to use
 
 This repository is for AtCoder Contest and partially for Aizu Online Judge.
-
+You have to rewrite `ROOT` on `tools/settings.py` before using this repository.
 
 ## Get test cases from the contest page
 ### AtCoder
