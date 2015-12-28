@@ -16,6 +16,11 @@ BASE_URL = 'http://%s.contest.atcoder.jp/'
 
 FIRST_INPUT_EXAMPLE = u'入力例1'
 
+# AOJ
+AOJ_DIR      = os.path.join(ROOT, 'AOJ')
+BASE_AOJ_URL = 'http://judge.u-aizu.ac.jp/onlinejudge/%s&lang=jp'
+AOJ_FIRST_INPUT_EXAMPLE = u'入力例'
+
 # Auto-submission
 USER_NAME = 'XXX'
 PASSWORD  = 'YYY'
