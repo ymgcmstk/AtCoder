@@ -44,9 +44,23 @@ void output(T a, int precision) {
   }
 }
 
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = false;
+
 int main() {
   int N;
   cin >> N;
-  // source code
   return 0;
 }

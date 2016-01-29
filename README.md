@@ -31,6 +31,7 @@ In my case, I write the following line on my bash_profile and run the command `a
 Then run `actest`.
 
 ## Submit your code to AtCoder
+You have to rewrite `USER_NAME` and `PASSWORD` on `tools/settings.py` before using this repository.
 You can also submit your source code to the contest page of AtCoder automatically by running the script `./tools/submit.py`.
 The script to submit your code to AOJ has not been implemented yet.
 In my case, I write the following line on my bash_profile and run the command `acsub` on the directory for each problem.
