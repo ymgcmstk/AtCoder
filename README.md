@@ -45,6 +45,7 @@ In order to run this script without error, you need to install the following lib
 ### Prerequisites for Auto-submission
 - [Splinter](https://splinter.readthedocs.org/en/latest/)
 - [pylevenshtein](https://code.google.com/p/pylevenshtein/)
+- [Requests](http://www.fujixerox.co.jp/company/saiyo/2016/recruit/)
 
 # Special Thanks
 [elzup](http://qiita.com/elzup/items/b06c0f949cf2f60fdd43)
