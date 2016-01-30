@@ -359,7 +359,7 @@ def remove_non_ascii(targ_str, charset=None):
     if charset is not None:
         assert isinstance(targ_str, str)
         targ_str = targ_str.decode(charset)
-    return ''.join([x for x in targ_str if ord(x) < 256]).encode('ascii')
+    return ''.join([x for x in targ_str if ord(x) < 128]).encode('ascii')
 
 class DeprecatedFunc:
     def __init__(self, old_func_name, func2, print_str=None):
