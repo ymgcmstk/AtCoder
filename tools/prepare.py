@@ -30,6 +30,8 @@ def main():
 
     if not url.startswith('http'):
         url = BASE_URL % url
+    elif not url.endswith('/'):
+        url += '/'
 
     m = re.search('(https?://)(?P<name>.*)\.contest?', url)
     contest_name = m.group('name')
