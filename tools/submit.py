@@ -26,15 +26,14 @@ def main():
     submit_url = os.path.join(BASE_URL % contest_name, 'submit')
     browser.visit(os.path.join(BASE_URL % contest_name, 'submit'))
     f = open(f_name, 'r')
-    # browser.fill('source_code', remove_non_ascii(''.join(f.read()))) # TODO
-    browser.fill('source_code', ''.join(f.read()).decode('utf-8')) # TODO
+    browser.fill('source_code', ''.join(f.read()).decode('utf-8'))
     f.close()
     elements = browser.find_by_xpath('//*[@id="submit-task-selector"]/option')
     for i in elements:
         if i.text.startswith(sub_name):
             i.click()
             break
-    elements = browser.find_by_xpath('//*[@id="submit-language-selector-1009"]/option')
+    elements = browser.find_by_xpath('//*[@id="submit-language-selector-1009"]/option') # TODO
     dist = float('inf')
     for i in elements:
         if f_name.startswith('py'):
