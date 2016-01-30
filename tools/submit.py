@@ -33,7 +33,14 @@ def main():
         if i.text.startswith(sub_name):
             i.click()
             break
-    elements = browser.find_by_xpath('//*[@id="submit-language-selector-1009"]/option') # TODO
+
+    elements = browser.find_by_xpath('//select[@class="submit-language-selector"]')
+    targ_num = None
+    for num, i in enumerate(elements):
+        if i.visible:
+            targ_num = num + 1
+            break
+    elements = browser.find_by_xpath('//select[@class="submit-language-selector"][%d]/option' % targ_num)
     dist = float('inf')
     for i in elements:
         if f_name.startswith('py'):
@@ -42,10 +49,7 @@ def main():
             i_dist = Levenshtein.distance(i.text, unicode(LANG_CPP))
         if i_dist < dist:
             dist = i_dist
-            try:
-                i.click()
-            except:
-                print "Choosing a language has failed."
+            i.click()
     browser.find_by_xpath('//*[@id="outer-inner"]/div[2]/div/form/fieldset/div[4]/button/span/span[2]').click()
     cur_status = browser.find_by_xpath('//*[@id="outer-inner"]/table/tbody/tr[1]/td[5]/span').text
     while cur_status == 'WJ' or '/' in cur_status:
