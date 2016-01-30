@@ -27,7 +27,7 @@ def main():
     browser.visit(os.path.join(BASE_URL % contest_name, 'submit'))
     f = open(f_name, 'r')
     # browser.fill('source_code', remove_non_ascii(''.join(f.read()))) # TODO
-    browser.fill('source_code', ''.join(f.read()).decode('utf-8').encode('utf-8')) # TODO
+    browser.fill('source_code', ''.join(f.read()).decode('utf-8')) # TODO
     f.close()
     elements = browser.find_by_xpath('//*[@id="submit-task-selector"]/option')
     for i in elements:
@@ -43,7 +43,10 @@ def main():
             i_dist = Levenshtein.distance(i.text, unicode(LANG_CPP))
         if i_dist < dist:
             dist = i_dist
-            i.click()
+            try:
+                i.click()
+            except:
+                print "Choosing a language has failed."
     browser.find_by_xpath('//*[@id="outer-inner"]/div[2]/div/form/fieldset/div[4]/button/span/span[2]').click()
     cur_status = browser.find_by_xpath('//*[@id="outer-inner"]/table/tbody/tr[1]/td[5]/span').text
     while cur_status == 'WJ' or '/' in cur_status:
