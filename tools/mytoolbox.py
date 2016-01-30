@@ -345,24 +345,21 @@ except:
         print 'search_nn_str() cannot be imported.'
         return
 
+def predict_charset (targ_str):
+    targ_charsets = ['utf-8', 'cp932', 'euc-jp', 'iso-2022-jp']
+    for targ_charset in targ_charsets:
+        try:
+            targ_str.decode(targ_charset)
+            return targ_charset
+        except UnicodeDecodeError:
+            pass
+    return None
 
-# deprecated
-def NOT_IMPLEMENTED():
-    raise NotImplementedException()
-    # raise Exception('Not Implemented')
-
-# deprecated
-"""
-def check_two_vecs(vec_a, vec_b, this_eps1=1e-7, this_eps2=2e-2):
-    print_str = 'This function "%s" method is deprecated. Please use the function "%s"' % ('check_two_vecs', 'comp_vecs')
-    print print_str
-    comp_vecs(vec_a, vec_b, this_eps1=this_eps1, this_eps2=this_eps2)
-
-def wait_for_appearing(targ_path, wait_sec=3):
-    print_str = 'This function "%s" method is deprecated. Please use the function "%s"' % ('wait_for_appearing', 'wait_for')
-    print print_str
-    wait_for(targ_path, wait_sec=wait_sec)
-"""
+def remove_non_ascii(targ_str, charset=None):
+    if charset is not None:
+        assert isinstance(targ_str, str)
+        targ_str = targ_str.decode(charset)
+    return ''.join([x for x in targ_str if ord(x) < 256]).encode('ascii')
 
 class DeprecatedFunc:
     def __init__(self, old_func_name, func2, print_str=None):
@@ -386,33 +383,3 @@ def deprecate(dep_func_name, new_func):
     exec("%s = DeprecatedFunc('%s', %s)" % (dep_func_name, dep_func_name, new_func.__name__))
 deprecate('wait_for_appearing', wait_for)
 """
-
-
-if __name__ == '__main__':
-    # check gmail
-    # gmail('', '', 'yamaguchikids@yahoo.co.jp')
-    # gmail('test2', 'test2', 'yamaguchikids@yahoo.co.jp')
-
-    wait_for_appearing('temp', wait_sec=2)
-
-    #check timemanager
-    TM = TimeReporter(15)
-    for i in range(15):
-        time.sleep(1)
-        TM.report(i)
-
-    #check textread
-    print textread('for_debug/test.txt')
-
-    #check functions for pickle and json
-    temp = {'a':1, 'b':2}
-    jsondump('for_debug/test.json', temp)
-    this_dic = jsonload('for_debug/test.json')
-    assert this_dic == temp
-    pickledump('for_debug/test.json', temp)
-    this_dic = pickleload('for_debug/test.json')
-    assert this_dic == temp
-
-    # print find_from_to('asdf', 'a', 'f')
-    assert find_from_to('asdf', 'a', 'f') == 'sd'
-    assert 'temp1' == search_nn_str('temp', ['temp2', 'asdfasdf', 'afd', 'temp1'])

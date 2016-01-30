@@ -26,7 +26,7 @@ def main():
     submit_url = os.path.join(BASE_URL % contest_name, 'submit')
     browser.visit(os.path.join(BASE_URL % contest_name, 'submit'))
     f = open(f_name, 'r')
-    browser.fill('source_code', ''.join(f.read()))
+    browser.fill('source_code', remove_non_ascii(''.join(f.read()))) # TODO
     f.close()
     elements = browser.find_by_xpath('//*[@id="submit-task-selector"]/option')
     for i in elements:
