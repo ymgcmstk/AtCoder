@@ -32,7 +32,7 @@ BROWSER   = 'chrome'
 
 # AOJ Settings
 AOJ_ROOT                = os.path.join(ROOT, 'AOJ')
-BASE_AOJ_URL            = 'https://judge.u-aizu.ac.jp/onlinejudge/%s&lang=jp'
+BASE_AOJ_URL            = 'http://judge.u-aizu.ac.jp/onlinejudge/%s&lang=jp'
 AOJ_FIRST_INPUT_EXAMPLE = u'入力例'
 
 # Assertions
