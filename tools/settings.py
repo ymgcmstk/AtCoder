@@ -5,12 +5,16 @@ import os
 # Overall Settings
 ROOT             = '/path/to/this/root'
 TOOL_DIR         = os.path.join(ROOT, 'tools')
+CPP_EXT          = 'cpp'
 TEMPLATE_DIR     = os.path.join(TOOL_DIR, 'templates')
-TEMPLATES        = {'py': 'template.py', 'cpp': 'template.cpp'}
+TEMPLATES        = {'py': 'template.py', CPP_EXT: 'template.%s' % CPP_EXT}
 INPUT_FILE_NAME  = 'input.txt'
 OUTPUT_FILE_NAME = 'output.txt'
 DELIMITER        = '---'
 USE_REQUESTS     = True
+
+# Test Settings
+EXC_STR = {'py': '/usr/bin/python ./%s'}
 
 # AtCoder Settings
 AC_ROOT             = os.path.join(ROOT, 'AtCoder')
@@ -23,7 +27,7 @@ FIRST_INPUT_EXAMPLE = u'入力例1'
 # Auto-submission Settings for AtCoder
 USER_NAME = 'XXX'
 PASSWORD  = 'YYY'
-LANG      = {'py': 'Python (2.7.3)', 'cpp': 'C++11 (GCC 4.8.1)'}
+LANG      = {'py': 'Python (2.7.3)', CPP_EXT: 'C++11 (GCC 4.8.1)'}
 BROWSER   = 'chrome'
 
 # AOJ Settings
@@ -35,4 +39,4 @@ AOJ_FIRST_INPUT_EXAMPLE = u'入力例'
 assert set(TEMPLATES.keys()) == set(LANG.keys())
 for ext, fname in TEMPLATES.iteritems():
     assert fname.endswith('.' + ext)
-    assert os.path.exists(os.path.join(TEMPLATE_DIR, fname)
+    # assert os.path.exists(os.path.join(TEMPLATE_DIR, fname))
