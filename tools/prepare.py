@@ -56,6 +56,12 @@ def main():
         page  = urlopen(os.path.join(url, "assignments"))
 
     soup  = BeautifulSoup(page, 'html.parser')
+    if "You cannot see this page." in str(soup):
+        print "Wait"
+        exit()
+    if "Join in" in str(soup):
+        print "Something wrong"
+        exit()
     table = soup.find('table', attrs={'class': 'table-wb'}).find('tbody')
 
     for tr in table.find_all('tr'):
@@ -76,11 +82,15 @@ def main():
             f.write(outputs)
             f.close()
             print("generate input > " + f_path)
-            cpp_file = os.path.join(q_path, '%s.cpp' % index)
-            if not os.path.exists(cpp_file):
-                shutil.copyfile(TEMPLATE, cpp_file)
+            copy_templates(q_path)
         else:
             print("already exists: f_path")
+
+def copy_templates(q_path):
+    for temp_ext, org_file in TEMPLATES.iteritems():
+        template_file = os.path.join(q_path, '%s.%s' % (index, temp_ext))
+        if not os.path.exists(template_file):
+            shutil.copyfile(org_file, template_file)
 
 def soup_prets(url, session):
     if USE_REQUESTS:
