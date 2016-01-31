@@ -2,7 +2,5 @@
 *#
 *.pyc
 TODO.txt
-ABC/*
-ARC/*
+AtCoder/*
 AOJ/*
-Others/*
