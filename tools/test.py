@@ -27,6 +27,8 @@ def generate_str_to_exc(targ_dir, targ_fname=None):
     else:
         files = [targ_fname]
     for targ_file in files:
+        if os.path.isdir(os.path.join(targ_dir, targ_file)):
+            continue
         if not '.' in targ_file:
             return ['./%s' % targ_file], '%s.%s' % (targ_file, CPP_EXT)
         for ext in EXC_STR:
