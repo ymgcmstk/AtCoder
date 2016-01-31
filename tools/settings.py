@@ -27,7 +27,7 @@ FIRST_INPUT_EXAMPLE = u'入力例1'
 # Auto-submission Settings for AtCoder
 USER_NAME = 'XXX'
 PASSWORD  = 'YYY'
-LANG      = {'py': 'Python (2.7.3)', CPP_EXT: 'C++11 (GCC 4.8.1)'}
+EXT2LANG  = {'py': 'Python (2.7.3)', CPP_EXT: 'C++11 (GCC 4.8.1)'}
 BROWSER   = 'chrome'
 
 # AOJ Settings
@@ -36,7 +36,7 @@ BASE_AOJ_URL            = 'https://judge.u-aizu.ac.jp/onlinejudge/%s&lang=jp'
 AOJ_FIRST_INPUT_EXAMPLE = u'入力例'
 
 # Assertions
-assert set(TEMPLATES.keys()) == set(LANG.keys())
+assert set(TEMPLATES.keys()) == set(EXT2LANG.keys())
 for ext, fname in TEMPLATES.iteritems():
     assert fname.endswith('.' + ext)
     # assert os.path.exists(os.path.join(TEMPLATE_DIR, fname))

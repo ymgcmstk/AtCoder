@@ -34,6 +34,7 @@ def generate_str_to_exc(targ_dir, targ_fname=None):
         for ext in EXC_STR:
             if targ_file.endswith(ext):
                 return (EXC_STR[ext] % targ_file).split(), targ_file
+    raise Exception()
 
 def main():
     targ_dir  = os.getcwd()

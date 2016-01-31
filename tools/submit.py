@@ -7,13 +7,33 @@ import splinter
 import Levenshtein
 import time
 
-def main():
-    contest_name, sub_name = os.getcwd().split('/')[-2:]
-    if os.path.exists(os.path.join(sub_name)) or True:
-        f_name = sub_name + '.cpp'
+def decide_file(targ_dir, targ_fname=None):
+    if targ_fname is None:
+        files = os.listdir(targ_dir)
+        files.sort(key=os.path.getmtime)
+        files.reverse()
     else:
-        assert os.path.exists('%s.py' % sub_name)
-        f_name = sub_name + '.py'
+        files = [targ_fname]
+    for targ_file in files:
+        if os.path.isdir(os.path.join(targ_dir, targ_file)):
+            continue
+        if not '.' in targ_file:
+            return EXT2LANG[CPP_EXT], '%s.%s' % (targ_file, CPP_EXT)
+        for ext in EXC_STR:
+            if targ_file.endswith(ext):
+                return EXT2LANG[ext], targ_file
+    raise Exception()
+
+def main():
+    targ_dir  = os.getcwd()
+    if len(sys.argv) == 1:
+        targ_lang, targ_file = decide_file(targ_dir)
+    elif len(sys.argv) == 2:
+        targ_lang, targ_file = decide_file(targ_dir, sys.argv[1])
+    else:
+        raise Exception("The number of input arguments is wrong")
+
+    contest_name, sub_name = os.getcwd().split('/')[-2:]
     browser = splinter.Browser(BROWSER)
     # sign in
     signin_url = os.path.join(BASE_URL % contest_name, 'login')
@@ -25,7 +45,7 @@ def main():
     # submit
     submit_url = os.path.join(BASE_URL % contest_name, 'submit')
     browser.visit(os.path.join(BASE_URL % contest_name, 'submit'))
-    f = open(f_name, 'r')
+    f = open(targ_file, 'r')
     browser.fill('source_code', ''.join(f.read()).decode('utf-8'))
     f.close()
     elements = browser.find_by_xpath('//*[@id="submit-task-selector"]/option')
@@ -43,10 +63,7 @@ def main():
     elements = browser.find_by_xpath('//select[@class="submit-language-selector"][%d]/option' % targ_num)
     dist = float('inf')
     for i in elements:
-        if f_name.startswith('py'):
-            i_dist = Levenshtein.distance(i.text, unicode(LANG_PY))
-        else:
-            i_dist = Levenshtein.distance(i.text, unicode(LANG_CPP))
+        i_dist = Levenshtein.distance(i.text, unicode(targ_lang))
         if i_dist < dist:
             dist = i_dist
             i.click()
@@ -59,5 +76,6 @@ def main():
         cur_status = browser.find_by_xpath('//*[@id="outer-inner"]/table/tbody/tr[1]/td[5]/span').text
     print cur_status + ' ' * 20
     browser.quit()
+
 if __name__ == '__main__':
     main()
