@@ -29,6 +29,7 @@ def main():
         url = input()
 
     if not url.startswith('http'):
+        url = url.lower()
         url = BASE_URL % url
     elif not url.endswith('/'):
         url += '/'
@@ -56,11 +57,11 @@ def main():
         page  = urlopen(os.path.join(url, "assignments"))
 
     soup  = BeautifulSoup(page, 'html.parser')
-    if "You cannot see this page." in str(soup):
-        print "Wait"
+    if not "Time limit" in str(soup):
+        print "Please wait until the contest starts."
         exit()
     if "Join in" in str(soup):
-        print "Something wrong"
+        print "Please join in the contest."
         exit()
     table = soup.find('table', attrs={'class': 'table-wb'}).find('tbody')
 
