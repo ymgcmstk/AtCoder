@@ -3,7 +3,7 @@
 import os
 
 # Overall Settings
-ROOT             = '/path/to/this/root'
+ROOT             = '/Users/yamaguchi/myproject/AtCoder'
 TOOL_DIR         = os.path.join(ROOT, 'tools')
 CPP_EXT          = 'cpp'
 TEMPLATE_DIR     = os.path.join(TOOL_DIR, 'templates')
@@ -25,8 +25,8 @@ BASE_URL            = 'https://%s.contest.atcoder.jp/'
 FIRST_INPUT_EXAMPLE = u'入力例1'
 
 # Auto-submission Settings for AtCoder
-USER_NAME = 'XXX'
-PASSWORD  = 'YYY'
+USER_NAME = 'gdgdgutta'
+PASSWORD  = 'masataka'
 EXT2LANG  = {'py': 'Python (2.7.3)', CPP_EXT: 'C++11 (GCC 4.8.1)'}
 BROWSER   = 'chrome'
 
