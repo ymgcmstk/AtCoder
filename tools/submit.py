@@ -19,6 +19,8 @@ def decide_file(targ_dir, targ_fname=None):
             continue
         if not '.' in targ_file:
             return EXT2LANG[CPP_EXT], '%s.%s' % (targ_file, CPP_EXT)
+        if CPP_EXT in targ_file:
+            return EXT2LANG[CPP_EXT], targ_file
         for ext in EXC_STR:
             if targ_file.endswith(ext):
                 return EXT2LANG[ext], targ_file

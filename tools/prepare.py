@@ -82,15 +82,15 @@ def main():
             f.write(outputs)
             f.close()
             print("generate input > " + f_path)
-            copy_templates(q_path)
+            copy_templates(q_path, index)
         else:
             print("already exists: f_path")
 
-def copy_templates(q_path):
+def copy_templates(q_path, index):
     for temp_ext, org_file in TEMPLATES.iteritems():
         template_file = os.path.join(q_path, '%s.%s' % (index, temp_ext))
         if not os.path.exists(template_file):
-            shutil.copyfile(org_file, template_file)
+            shutil.copyfile(os.path.join(TEMPLATE_DIR, org_file), template_file)
 
 def soup_prets(url, session):
     if USE_REQUESTS:

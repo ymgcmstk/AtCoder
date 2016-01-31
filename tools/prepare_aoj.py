@@ -12,6 +12,7 @@ import sys
 import os
 import re
 from settings import *
+from prepare import copy_templates
 
 def main():
     # http://arc001.contest.atcoder.jp/
@@ -64,9 +65,7 @@ def main():
             f.write(outputs)
             f.close()
             print("generate input > " + f_path)
-            cpp_file = os.path.join(q_path, '%s.cpp' % index)
-            if not os.path.exists(cpp_file):
-                shutil.copyfile(TEMPLATE, cpp_file)
+            copy_templates(q_path, index)
         else:
             print("already exists: f_path")
 
