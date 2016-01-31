@@ -2,3 +2,7 @@
 *#
 *.pyc
 TODO.txt
+ABC/*
+ARC/*
+AOJ/*
+Others/*
