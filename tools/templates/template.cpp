@@ -20,30 +20,6 @@
 #define MOD 1000000007
 using namespace std;
 
-template <typename T> void input_array(T * p){
-  int a = sizeof(p) / sizeof(p[0]);
-  rep(i, a){
-    cin >> p[i];
-  }
-}
-
-void input_vector(vector<int> * p, int a){
-  rep(i, a){
-    int input;
-    cin >> input;
-    p -> push_back(input);
-  }
-}
-
-template <typename T>
-void output(T a, int precision) {
-  if (precision > 0) {
-    cout << setprecision(precision)  << a << "\n";
-  } else {
-    cout << a << "\n";
-  }
-}
-
 template <typename T>
 void show_array(T arr[]) {
   rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
