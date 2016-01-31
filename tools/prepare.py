@@ -57,11 +57,11 @@ def main():
         page  = urlopen(os.path.join(url, "assignments"))
 
     soup  = BeautifulSoup(page, 'html.parser')
-    if not "Time limit" in str(soup):
-        print "Please wait until the contest starts."
-        exit()
     if "Join in" in str(soup):
         print "Please join in the contest."
+        exit()
+    if not "Time limit" in str(soup):
+        print "Please wait until the contest starts."
         exit()
     table = soup.find('table', attrs={'class': 'table-wb'}).find('tbody')
 
