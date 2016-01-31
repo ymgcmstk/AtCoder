@@ -34,7 +34,7 @@ def main():
     else:
         contest_name = url.split('=')[1]
 
-    contest_path = os.path.join(AOJ_DIR, contest_name)
+    contest_path = os.path.join(AOJ_ROOT, contest_name)
     mkdir_if_missing(contest_path)
 
     page  = urlopen(url)
