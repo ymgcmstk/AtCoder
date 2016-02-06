@@ -6,7 +6,7 @@ def split_int(string):
 
 def get_line(integer=False):
     string = sys.stdin.readline().rstrip()
-    if interger:
+    if integer:
         return split_int(string)
     else:
         return string
