@@ -102,7 +102,7 @@ def soup_prets(url, session):
     inputs = []
     outputs = []
     for _h3tag in soup.find_all('h3'):
-        if ' '.join(_h3tag.strings).strip() == FIRST_INPUT_EXAMPLE:
+        if ''.join(_h3tag.strings).replace(' ', '') == FIRST_INPUT_EXAMPLE:
             h3tag = _h3tag
             break
     for pretag in h3tag.find_all_next("pre", attrs={"class": "prettyprint"})[::2]:
