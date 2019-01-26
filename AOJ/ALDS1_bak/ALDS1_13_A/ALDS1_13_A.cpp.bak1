@@ -1,0 +1,141 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T> void input_array(T * p){
+  int a = sizeof(p) / sizeof(p[0]);
+  rep(i, a){
+    cin >> p[i];
+  }
+}
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = true;
+
+typedef pair<int, int> pii;
+
+int get_next(pii prev_q, int pop_count) {
+  return prev_q.first * 8 + prev_q.second + 1 + pop_count;
+}
+
+int check(pii q, vector<int> &Sp, vector<int> &Ss, vector<int> &Sd1, vector<int> &Sd2) {
+  if (find(Sp.begin(), Sp.end(), q.first) != Sp.end()) return false;
+  if (find(Ss.begin(), Ss.end(), q.second) != Ss.end()) return false;
+  if (find(Sd1.begin(), Sd1.end(), q.first+q.second) != Sd1.end()) return false;
+  if (find(Sd2.begin(), Sd2.end(), q.first-q.second) != Sd2.end()) return false;
+  return true;
+}
+
+int main() {
+  int N;
+  cin >> N;
+  bool chess_map[8][8];
+  rep(i, 8) fill(chess_map[i], chess_map[i]+8, false);
+  int p, s;
+  vector<int> Sp, Ss, Sd1, Sd2;
+  rep(i, N) {
+    cin >> p >> s;
+    chess_map[p][s] = true;
+    Sp.push_back(p);
+    Ss.push_back(s);
+    Sd1.push_back(p+s);
+    Sd2.push_back(p-s);
+  }
+  stack<pii> Qs;
+  Qs.push(make_pair(-1, 7));
+  int next;
+  pii prev_q;
+  int pop_count = 0;
+  int s_size[9];
+  fill(s_size, s_size+9, 0);
+  s_size[0] = get_next(Qs.top(), 0);
+  while (Qs.size() <= 8 - N) {
+    //
+    rep(i, 8) {
+      rep(j, 7) {
+        if (chess_map[i][j]) cout << 'Q' << ' ';
+        else cout << '.' << ' ';
+      }
+      if (chess_map[i][7]) cout << 'Q' << endl;
+      else cout << '.' << endl;
+    }
+    cout << endl;
+    //
+    prev_q = Qs.top();
+    next = max(get_next(prev_q, pop_count), s_size[Qs.size()]);
+    bool cont_flg = false;
+    repd(i, next, 64) {
+      p = i / 8;
+      s = i % 8;
+      if (check(make_pair(p, s), Sp, Ss, Sd1, Sd2)) {
+        cont_flg = true;
+        chess_map[p][s] = true;
+        Sp.push_back(p);
+        Ss.push_back(s);
+        Sd1.push_back(p+s);
+        Sd2.push_back(p-s);
+        Qs.push(make_pair(p, s));
+        s_size[Qs.size()] = get_next(Qs.top(), 1);
+        break;
+      }
+    }
+    if (cont_flg) {
+      pop_count = 0;
+      continue;
+    }
+    // s_size[Qs.size()+1] = 0;
+    s_size[Qs.size()] = 0;
+    s_size[Qs.size()-1]++;
+    Qs.pop();
+    chess_map[prev_q.first][prev_q.second] = false;
+    Sp.erase(Sp.end()-1);
+    Ss.erase(Ss.end()-1);
+    Sd1.erase(Sd1.end()-1);
+    Sd2.erase(Sd2.end()-1);
+    pop_count++;
+  }
+  rep(i, Qs.size()-1) {
+    pii this_q = Qs.top(); Qs.pop();
+    chess_map[this_q.first][this_q.second] = true;
+  }
+  rep(i, 8) {
+    rep(j, 7) {
+      if (chess_map[i][j]) cout << 'Q' << ' ';
+      else cout << '.' << ' ';
+    }
+    if (chess_map[i][7]) cout << 'Q' << endl;
+    else cout << '.' << endl;
+    // cout << chess_map[i][7] << endl;
+  }
+  return 0;
+}

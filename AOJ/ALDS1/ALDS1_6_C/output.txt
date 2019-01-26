@@ -1,0 +1,11 @@
+Not stable
+D 1
+C 1
+D 2
+H 2
+D 3
+S 3
+---
+Stable
+S 1
+H 1

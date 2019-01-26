@@ -1,0 +1,16 @@
+4
+ab
+ba
+ab
+cb
+---
+4
+ab
+ba
+adb
+cb
+---
+3
+atcoder
+redcoder
+recorder

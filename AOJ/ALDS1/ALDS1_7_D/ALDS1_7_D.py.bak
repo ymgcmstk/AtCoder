@@ -1,0 +1,32 @@
+# -*- coding:utf-8 -*-
+import sys
+
+def split_int(string):
+    return [int(x) for x in string.split()]
+
+def get_line(integer=False):
+    string = sys.stdin.readline().rstrip()
+    if integer:
+        return split_int(string)
+    else:
+        return string
+
+def split(preorder, inorder):
+    if len(preorder) == 0:
+        return
+    center_ind = inorder.index(preorder[0])
+    split(preorder[1:center_ind+1], inorder[:center_ind])
+    split(preorder[center_ind+1:], inorder[center_ind+1:])
+    print preorder[0],
+
+
+def main():
+    N = int(get_line())
+    preorder = get_line(True)
+    inorder  = get_line(True)
+
+    split(preorder, inorder)
+
+
+if __name__ == '__main__':
+    main()

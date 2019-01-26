@@ -1,0 +1,108 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = false;
+
+bool check_cur_state(vector<int> &x, vector<int> &y, int N, vector<bool> &cur_state, int new_node) {
+  if (new_node < 0) return false;
+  int dist[N][N];
+  int dist2[N];
+  fill(dist2, dist2+N, MOD);
+  rep(i, N) fill(dist[i], dist[i]+N, MOD);
+  rep(i, N) dist[i][i] = 0;
+  rep(i, cur_state.size()) {
+    if (!cur_state[i]) continue;
+    if (i == new_node) continue;
+    dist[x[i]][y[i]] = 1;
+    dist[y[i]][x[i]] = 1;
+  }
+  rep(k, N) {
+    rep(i, N) {
+      rep(j, N) {
+        dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+      }
+    }
+  }
+  if (dist[x[new_node]][y[new_node]] % 2 == 0) return true;
+  return false;
+}
+
+string get_cur_state(vector<bool> &cur_state) {
+  string ans = "";
+  rep(i, cur_state.size()){
+    if (cur_state[i]) ans += "1";
+    else ans += "0";
+  }
+  return ans;
+}
+
+int cur_dfs(vector<int> &x, vector<int> &y, int N, vector<bool> &cur_state, int new_node, set<string> &elist) {
+  int ans = 0;
+  int cur_val;
+  if (check_cur_state(x, y, N, cur_state, new_node)) {
+    return 0;
+  }
+  rep(i, cur_state.size()) {
+    if (cur_state[i]) continue;
+    cur_state[i] = true;
+    ans += cur_dfs(x, y, N, cur_state, i, elist);
+    cur_state[i] = false;
+  }
+  if (ans == 0) {
+    // show_vec(cur_state);
+    string cur_state_str = get_cur_state(cur_state);
+    if (elist.find(cur_state_str) != elist.end()) return 1;
+    elist.insert(cur_state_str);
+    return 1;
+  }
+  return ans;
+}
+
+int main() {
+  int N, M;
+  cin >> N >> M;
+  vector<int> x(M), y(M);
+  rep(i, M) cin >> x[i] >> y[i];
+  rep(i, M) {
+    x[i]--;
+    y[i]--;
+  }
+  vector<bool> cur_state(M);
+  fill(cur_state.begin(), cur_state.end(), false);
+  set<string> elist;
+  int ans = cur_dfs(x, y, N, cur_state, -1, elist);
+  cout << elist.size() << endl;
+  return 0;
+}

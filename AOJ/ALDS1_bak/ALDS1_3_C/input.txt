@@ -1,0 +1,52 @@
+7
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+---
+9
+insert 5
+insert 2
+insert 3
+insert 1
+delete 3
+insert 6
+delete 5
+deleteFirst
+deleteLast
+---
+21
+insert 1
+insert 2
+insert 3
+insert 4
+insert 5
+insert 6
+insert 7
+insert 8
+delete 5
+delete 7
+insert 9
+deleteLast
+deleteLast
+insert 10
+deleteFirst
+deleteFirst
+delete 8
+insert 7
+insert 8
+delete 4
+insert 1
+---
+8
+insert 1000000000
+insert 999999999
+deleteLast
+insert 1234566890
+insert 5
+deleteFirst
+insert 7
+delete 5

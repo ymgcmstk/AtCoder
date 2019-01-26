@@ -1,0 +1,52 @@
+# -*- coding:utf-8 -*-
+import sys
+
+def split_int(string):
+    return [int(x) for x in string.split()]
+
+def get_line(integer=False):
+    string = sys.stdin.readline().rstrip()
+    if integer:
+        return split_int(string)
+    else:
+        return string
+
+def Heapify(heap, cur_ind):
+    if cur_ind == 0:
+        return heap
+    par_ind = (cur_ind - 1) / 2
+    if heap[par_ind] < heap[cur_ind]:
+        heap[par_ind], heap[cur_ind] = heap[cur_ind], heap[par_ind]
+        heap = Heapify(heap, par_ind)
+    return heap
+
+def Heapify2(heap, cur_ind):
+    child_ind = cur_ind * 2 + 1
+    if len(heap) <= cur_ind * 2 + 1:
+        return heap
+    if len(heap) > cur_ind * 2 + 2:
+        if heap[cur_ind * 2 + 1] < heap[cur_ind * 2 + 2]:
+            child_ind = cur_ind * 2 + 2
+    if heap[cur_ind] >= heap[child_ind]:
+        return heap
+    heap[cur_ind], heap[child_ind] = heap[child_ind], heap[cur_ind]
+    heap = Heapify2(heap, child_ind)
+    return heap
+
+def main():
+    cur_line = get_line().split()
+    cur_heap = []
+    while cur_line[0] != 'end':
+        if cur_line[0] == 'insert':
+            cur_heap.append(int(cur_line[1]))
+            cur_heap = Heapify(cur_heap, len(cur_heap)-1)
+        elif cur_line[0] == 'extract':
+            print cur_heap[0]
+            cur_heap[0] = cur_heap[-1]
+            cur_heap = cur_heap[:-1]
+            cur_heap = Heapify2(cur_heap, 0)
+        cur_line = get_line().split()
+
+
+if __name__ == '__main__':
+    main()

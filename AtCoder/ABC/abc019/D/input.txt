@@ -1,0 +1,19 @@
+printf("? %d %d\n", 1, 2);
+fflush(stdout);
+scanf("%d", &dist;);
+---
+System.out.printf("? %d %d\n", 1, 2);
+Scanner scanner = new Scanner(System.in);
+dist = scanner.nextInt();
+---
+writeln("? ", 1, " ", 2);
+stdout.flush();
+dist = readln.chomp.to!int;
+---
+print "? {0} {1}".format(1, 2)
+sys.stdout.flush()
+dist = int(raw_input())
+---
+print "? ", 1, " ", 2, "\n"
+STDOUT.flush
+dist = gets.to_i

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://arc052.contest.atcoder.jp/tasks/arc052_a -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>A: 何期生？
+ - AtCoder Regular Contest 052 | AtCoder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="
+">
+    <meta name="keyword" content="AtCoder,アットコーダー,あっとこーだー,プログラミングコンテスト
+">
+    <meta name="author" content="Atcoder">
+    <meta name="copyright" content="Copyright (C) 2012 Atcoder">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./A_files/all.css">
+    <link rel="stylesheet" type="text/css" href="./A_files/print.css" media="print">
+        <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" async="" src="./A_files/ga.js"></script><script src="./A_files/jquery.js"></script>
+    <link rel="shortcut icon" href="http://arc052.contest.atcoder.jp/img/favicon.ico">
+
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30554866-3']);
+  _gaq.push(['_setDomainName', 'atcoder.jp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+    <!--[if lt IE 9]><style>.navbar-fixed-top{ position: relative!important; }</style><![endif]-->
+
+  </head>
+
+
+  <body>
+          <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+              <a class="brand" href="http://arc052.contest.atcoder.jp/"><span class="contest-name">AtCoder Regular Contest 052</span><span class="bland-small"><time class="timezone-fixed">2016/04/30 21:00:00</time> ~ <time class="timezone-fixed">2016/04/30 22:30:00</time></span></a>
+      
+      <div class="nav-collapse">
+                <ul class="nav">
+          <li class="divider-vertical"></li>
+          <li><a href="http://atcoder.jp/" target="_blank">AtCoderへ戻る</a></li>
+        </ul>
+                            <ul id="nav-right-logined" class="nav pull-right">
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> <span id="nav-right-username">gdgdgutta(contestant)</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://arc052.contest.atcoder.jp/me">マイプロフィール</a></li>
+                                	<li><a href="http://arc052.contest.atcoder.jp/settings"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Settings</span><span class="lang-ja lang-child">設定</span></span></a></li>
+                	                	<li><a href="http://arc052.contest.atcoder.jp/settings/password"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Change password</span><span class="lang-ja lang-child">パスワードの変更</span></span></a></li>
+                	<li class="divider"></li>
+                                <li><a href="http://arc052.contest.atcoder.jp/logout"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign out</span><span class="lang-ja lang-child">ログアウト</span></span></a></li>
+             </ul>
+            </li>
+          </ul>
+          <ul id="nav-right-not-login" class="nav pull-right" style="display:none;">
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://arc052.contest.atcoder.jp/register"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign up</span><span class="lang-ja lang-child">新規登録</span></span></a></li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://arc052.contest.atcoder.jp/login"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign in</span><span class="lang-ja lang-child">ログイン</span></span></a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal hide fade" style="display:none;" id="modal-contest-end">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">AtCoder Regular Contest 052 has ended</span><span class="lang-ja lang-child">AtCoder Regular Contest 052が終了しました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Contest has ended</span><span class="lang-ja lang-child">コンテスト終了です</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://arc052.contest.atcoder.jp/tasks/arc052_a#" class="btn" data-dismiss="modal"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Close</span><span class="lang-ja lang-child">閉じる</span></span></a>
+  </div>
+</div>
+
+<div class="modal hide fade" style="display:none;" id="modal-contest-begin">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">AtCoder Regular Contest 052 is now opening</span><span class="lang-ja lang-child">AtCoder Regular Contest 052の開催時間になりました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Contest has started</span><span class="lang-ja lang-child">問題一覧のページへ移動してください</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://arc052.contest.atcoder.jp/assignments" class="btn btn-primary"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Go to the task list page</span><span class="lang-ja lang-child">問題一覧のページへ移動</span></span></a>
+  </div>
+</div>
+    
+    <div id="outer-inner" class="container">
+      <h1 class="site-title">
+          AtCoder Regular Contest 052
+      </h1>
+                      <time style="display:none" id="contest-start-time" class="timezone-fixed">2016/04/30 21:00:00</time>
+        <time style="display:none" id="contest-end-time" class="timezone-fixed">2016/04/30 22:30:00</time>
+        <time style="display:none" id="server-current-time" class="timezone-fixed">2016/04/30 21:00:27</time>
+
+            
+      <ul class="nav nav-tabs">
+                            <li><a href="http://arc052.contest.atcoder.jp/"><i class="icon-home"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Home</span><span class="lang-ja lang-child">トップページ</span><span class="lang-ko lang-child hidden-lang">톱 페이지</span></span></a></li>
+                                          <li class="active"><a href="http://arc052.contest.atcoder.jp/assignments"><i class="icon-list-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Tasks</span><span class="lang-ja lang-child">問題</span><span class="lang-ko lang-child hidden-lang">문제</span></span></a></li>
+                                          <li><a href="https://arc052.contest.atcoder.jp/submit"><i class="icon-upload"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Submit</span><span class="lang-ja lang-child">提出</span><span class="lang-ko lang-child hidden-lang">제출</span></span></a></li>
+                                          <li><a href="http://arc052.contest.atcoder.jp/clarifications"><i class="icon-question-sign"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Clarifications</span><span class="lang-ja lang-child">質問</span><span class="lang-ko lang-child hidden-lang">질문</span></span></a></li>
+                                          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="http://arc052.contest.atcoder.jp/tasks/arc052_a#">
+              <b class="caret"></b><i class="icon-download-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Results</span><span class="lang-ja lang-child">結果</span><span class="lang-ko lang-child hidden-lang">채점 결과</span></span>
+            </a>
+            <ul class="dropdown-menu">
+                              <li><a href="https://arc052.contest.atcoder.jp/submissions/me"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">My submissions</span><span class="lang-ja lang-child">自分の結果</span><span class="lang-ko lang-child hidden-lang">자신의 결과</span></span></a></li>
+                          </ul>
+          </li>
+                                          <li><a href="http://arc052.contest.atcoder.jp/standings"><i class="icon-user"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Standings</span><span class="lang-ja lang-child">順位表</span><span class="lang-ko lang-child hidden-lang">순위표</span></span></a></li>
+                      </ul>
+        <div id="alert_box" class="alert alert-block" style="display:none">
+  <a class="close" data-dismiss="alert">×</a>
+  <h4 id="alert_box_heading" class="alert-heading" style="display:none"></h4>
+  <p id="alert_box_content"></p>
+</div>
+
+      <h2>A - 何期生？</h2>
+<hr>
+<p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Time limit</span><span class="lang-ja lang-child">時間制限</span></span> : 2sec / <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Stack limit</span><span class="lang-ja lang-child">スタック制限</span></span> : 256MB / <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Memory limit</span><span class="lang-ja lang-child">メモリ制限</span></span> : 256MB</p>
+
+<div id="task-statement">
+  <section>
+<h3>問題文</h3>
+<p>
+高橋くんの通う学校では、創立された年に入学した生徒を <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1</span></var> 期生、その次の年に入学した生徒を <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">2</span></var> 期生、といったように呼びます。<br>
+つまり、<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">(入学した年<span style="padding:0.25ex;"></span>−<span style="padding:0.25ex;"></span>創立された年)<span style="padding:0.25ex;"></span>+<span style="padding:0.25ex;"></span>1<span style="padding:0.25ex;"></span>=<span style="padding:0.25ex;"></span><i>n</i></span></var> の時に <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>n</i></span></var> 期生と呼ばれることとなります。<br>
+また、高橋くんの学校内では生徒がみな ID を持っており、それぞれの ID には必ず自分の期の数字が含まれることがわかっています。<br>
+<br>
+ある生徒の ID が文字列 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var> として与えられるとき、その生徒が何期生であるかを回答してください。<br>
+<br>
+また、数字が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">2</span></var> つ連続して並んでいる場合は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">2</span></var> 桁の数字を意味するものとします。<br>
+</p></section>
+<section>
+<h3>制約</h3>
+<ul>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var> は大文字か小文字のアルファベット、または数字によって構成される</li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var> は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1</span></var> 個または <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">2</span></var> 個の数字を含む</li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var> が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">2</span></var> 個の数字を含む場合、数字は連続している</li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var> に最初に現れる数字は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> ではない</li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">3<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>|<i>S</i>|<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>10</span></var></li>
+</ul>
+</section>
+<hr>
+<div class="io-style">
+<section>
+<h3>入力</h3>
+<p>入力は以下の形式で標準入力から与えられる。</p>
+<pre><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>S</i></span></var>
+</pre>
+</section>
+<section>
+<h3>出力</h3>
+<p>
+出力は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1</span></var> 行からなる。
+生徒が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>n</i></span></var> 期生の時に、出力の 1 行目に <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>n</i></span></var> を出力せよ。
+</p>
+</section>
+</div>
+<hr>
+<section>
+<h3>入力例 1</h3>
+<pre>chokudai55
+</pre>
+</section>
+<section>
+<h3>出力例 1</h3>
+<pre>55
+</pre>
+</section>
+<hr>
+<section>
+<h3>入力例 2</h3>
+<pre>cho9dai
+</pre>
+</section>
+<section>
+<h3>出力例 2</h3>
+<pre>9
+</pre>
+</section>
+<hr>
+</div>
+
+
+<hr>
+<p><a class="btn btn-primary btn-large" href="http://arc052.contest.atcoder.jp/submit?task_id=1872"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Submit</span><span class="lang-ja lang-child">提出する</span></span></a></p>
+
+    </div>
+
+    <footer>
+      <ul>
+  <li><a href="http://arc052.contest.atcoder.jp/tos"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Terms of service</span><span class="lang-ja lang-child">利用規約</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/privacy"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Privacy</span><span class="lang-ja lang-child">プライバシーポリシー</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/tutorial"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Tutorial</span><span class="lang-ja lang-child">チュートリアル</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/rules"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Rules</span><span class="lang-ja lang-child">ルール</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/glossary"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Glossary</span><span class="lang-ja lang-child">用語集</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/faq"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">FAQ</span><span class="lang-ja lang-child">よくある質問</span></span></a></li>
+</ul>
+<p id="copyright">© 2015 AtCoder Inc. All rights reserved.</p>
+    </footer>
+
+    <p id="fixed-server-timer">残り時間<br>01:28:56</p>
+
+        <script src="./A_files/bootstrap.min.js"></script>
+    <script src="./A_files/prettify.js"></script>
+    <script src="./A_files/lang-vb.js"></script>
+    <script src="./A_files/lang-hs.js"></script>
+    <script src="./A_files/varmath.js"></script>
+    <script src="./A_files/script.js"></script>
+  
+
+</body></html>

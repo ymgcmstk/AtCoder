@@ -1,0 +1,176 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+typedef vector<vector<char> > vvc;
+typedef pair<int, int> pii;
+
+bool debug_mode = true;
+
+const char WALL = '#';
+const char S = 's';
+const char G = 'g';
+const char HALF_S = 'S';
+const char HALF_G = 'G';
+const char UNKNOWN = '.';
+
+const int d_x[] = {0, 1, 0, -1};
+const int d_y[] = {1, 0, -1, 0};
+
+const int d_x2[] = {2, 1, 0, -1, -2, -1,  0,  1};
+const int d_y2[] = {0, 1, 2,  1,  0, -1, -2, -1};
+
+void show(vvc &town_map) {
+  rep(i, town_map.size()) {
+    rep(j, town_map[0].size()) {
+      cout << town_map[i][j];
+    }
+    cout << endl;
+  }
+}
+
+void color(vvc &town_map, char targ_color, int _i, int _j) {
+  queue<pii> Qp;
+  pii cur_pair;
+  int cur_x, cur_y;
+  Qp.push(make_pair(_i, _j));
+  while (!Qp.empty()) {
+    cur_pair = Qp.front();
+    Qp.pop();
+    if (town_map[cur_pair.first][cur_pair.second] != UNKNOWN) continue;
+    town_map[cur_pair.first][cur_pair.second] = targ_color;
+    rep(dxdy_i, 4) {
+      cur_x = cur_pair.first+d_x[dxdy_i];
+      cur_y = cur_pair.second+d_y[dxdy_i];
+      if (cur_x < 0 || cur_y < 0 || cur_x >= town_map.size() || cur_y >= town_map[0].size()) continue;
+      if (town_map[cur_x][cur_y] != UNKNOWN) continue;
+      Qp.push(make_pair(cur_x, cur_y));
+    }
+  }
+}
+
+bool check_two_colors1(vvc &town_map) {
+  int cur_x, cur_y;
+  rep(i, town_map.size()) {
+    rep(j, town_map[i].size()) {
+      if (town_map[i][j] != S) continue;
+      repd(in_i, -3, 4) {
+        cur_x = i + in_i;
+        if (cur_x < 0 || cur_x >= town_map.size()) continue;
+        repd(in_j, -3 + abs(in_i), 4 - abs(in_i)) {
+          cur_y = j + in_j;
+          if (cur_y < 0 || cur_y >= town_map[i].size()) continue;
+          if (town_map[cur_x][cur_y] == G) return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+bool check_two_colors2(vvc &town_map) {
+  int cur_x, cur_y;
+  rep(i, town_map.size()) {
+    rep(j, town_map[i].size()) {
+      if (town_map[i][j] == S) {
+        rep(in_i, 8) {
+          cur_x = i + d_x2[in_i];
+          cur_y = j + d_y2[in_i];
+          if (cur_x < 0 || cur_x >= town_map.size()) continue;
+          if (cur_y < 0 || cur_y >= town_map[i].size()) continue;
+          if (town_map[cur_x][cur_y] == UNKNOWN) {
+            color(town_map, HALF_S, cur_x, cur_y);
+          } else if (town_map[cur_x][cur_y] == HALF_G) {
+            return true;
+          }
+        }
+      } else if (town_map[i][j] == G) {
+        rep(in_i, 8) {
+          cur_x = i + d_x2[in_i];
+          cur_y = j + d_y2[in_i];
+          if (cur_x < 0 || cur_x >= town_map.size()) continue;
+          if (cur_y < 0 || cur_y >= town_map[i].size()) continue;
+          if (town_map[cur_x][cur_y] == UNKNOWN) {
+            color(town_map, HALF_G, cur_x, cur_y);
+          } else if (town_map[cur_x][cur_y] == HALF_S) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  return false;
+}
+
+int main() {
+  int H, W;
+  cin >> H >> W;
+  vvc town_map(H);
+  char temp;
+  int start_i, start_j, goal_i, goal_j;
+  rep(i, H) {
+    town_map[i] = vector<char>(W);
+    rep(j, W) {
+      cin >> temp;
+      if (temp == S) {
+        start_i = i;
+        start_j = j;
+        town_map[i][j] = UNKNOWN;
+      } else if (temp == G) {
+        goal_i = i;
+        goal_j = j;
+        town_map[i][j] = UNKNOWN;
+      } else {
+        town_map[i][j] = temp;
+      }
+    }
+  }
+  color(town_map, S, start_i, start_j);
+  if (town_map[goal_i][goal_j] == S) {
+    cout << "YES" << endl;
+    return 0;
+  }
+  color(town_map, G, goal_i, goal_j);
+  // show(town_map);
+  if (check_two_colors1(town_map)) {
+    cout << "YES" << endl;
+    return 0;
+  }
+  if (check_two_colors2(town_map)) {
+    cout << "YES" << endl;
+    return 0;
+  }
+  cout << "NO" << endl;
+  return 0;
+}

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+   <title>
+    B: ã¨ã¼ã¸ã§ã³ãé«æ©å
+ - AtCoder Beginner Contest 039 | AtCoder
+   </title>
+   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="
+" name="description">
+     <meta content="AtCoder,ã¢ããã³ã¼ãã¼,ãã£ã¨ãã¼ã ã¼,ãã­ã°ã©ãã³ã°ã³ã³ãã¹ã
+" name="keyword">
+      <meta content="Atcoder" name="author"/>
+      <meta content="Copyright (C) 2012 Atcoder" name="copyright"/>
+      <meta content="telephone=no" name="format-detection"/>
+      <link href="/css/all.css?v=2" rel="stylesheet" type="text/css">
+       <link href="/css/print.css?v=1" media="print" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <script src="/js/jquery.js">
+        </script>
+        <link href="/img/favicon.ico" rel="shortcut icon">
+         <script type="text/javascript">
+          var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30554866-3']);
+  _gaq.push(['_setDomainName', 'atcoder.jp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+         </script>
+         <!--[if lt IE 9]><style>.navbar-fixed-top{ position: relative!important; }</style><![endif]-->
+        </link>
+       </link>
+      </link>
+     </meta>
+    </meta>
+   </meta>
+  </meta>
+ </head>
+ <body>
+  <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+    <div class="container">
+     <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+      <span class="icon-bar">
+      </span>
+     </a>
+     <a class="brand" href="/">
+      <span class="contest-name">
+       AtCoder Beginner Contest 039
+      </span>
+      <span class="bland-small">
+       <time>
+        2016/06/11 12:00:00 +0000
+       </time>
+       ~
+       <time>
+        2016/06/11 14:00:00 +0000
+       </time>
+      </span>
+     </a>
+     <div class="nav-collapse">
+      <ul class="nav">
+       <li class="divider-vertical">
+       </li>
+       <li>
+        <a href="http://atcoder.jp" target="_blank">
+         AtCoderã¸æ»ã
+        </a>
+       </li>
+      </ul>
+      <ul class="nav pull-right" id="nav-right-logined" style="display:none;">
+       <li class="dropdown">
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="ja" style="display:none;">
+         <i class="flag-ja">
+         </i>
+         æ¥æ¬èª
+         <b class="caret">
+         </b>
+        </a>
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="en" style="display:none;">
+         <i class="flag-en">
+         </i>
+         English
+         <b class="caret">
+         </b>
+        </a>
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="ko" style="display:none;">
+         <i class="flag-ko">
+         </i>
+         íêµ­ì´
+         <b class="caret">
+         </b>
+        </a>
+        <ul class="dropdown-menu">
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="ja">
+           <i class="flag-ja">
+           </i>
+           æ¥æ¬èª
+          </a>
+         </li>
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="en">
+           <i class="flag-en">
+           </i>
+           English
+          </a>
+         </li>
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="ko">
+           <i class="flag-ko">
+           </i>
+           íêµ­ì´
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="divider-vertical">
+       </li>
+       <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+         <i class="icon-cog icon-white">
+         </i>
+         <span id="nav-right-username">
+         </span>
+         <b class="caret">
+         </b>
+        </a>
+        <ul class="dropdown-menu">
+         <li>
+          <a href="/me">
+           ãã¤ãã­ãã£ã¼ã«
+          </a>
+         </li>
+         <li>
+          <a href="/settings">
+           <span class="lang">
+            <span class="lang-en">
+             Settings
+            </span>
+            <span class="lang-ja">
+             è¨­å®
+            </span>
+           </span>
+          </a>
+         </li>
+         <li>
+          <a href="/settings/password">
+           <span class="lang">
+            <span class="lang-en">
+             Change password
+            </span>
+            <span class="lang-ja">
+             ãã¹ã¯ã¼ãã®å¤æ´
+            </span>
+           </span>
+          </a>
+         </li>
+         <li class="divider">
+         </li>
+         <li>
+          <a href="/logout">
+           <span class="lang">
+            <span class="lang-en">
+             Sign out
+            </span>
+            <span class="lang-ja">
+             ã­ã°ã¢ã¦ã
+            </span>
+           </span>
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+      <ul class="nav pull-right" id="nav-right-not-login" style="display:none;">
+       <li class="dropdown">
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="ja" style="display:none;">
+         <i class="flag-ja">
+         </i>
+         æ¥æ¬èª
+         <b class="caret">
+         </b>
+        </a>
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="en" style="display:none;">
+         <i class="flag-en">
+         </i>
+         English
+         <b class="caret">
+         </b>
+        </a>
+        <a class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" href="#" lang="ko" style="display:none;">
+         <i class="flag-ko">
+         </i>
+         íêµ­ì´
+         <b class="caret">
+         </b>
+        </a>
+        <ul class="dropdown-menu">
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="ja">
+           <i class="flag-ja">
+           </i>
+           æ¥æ¬èª
+          </a>
+         </li>
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="en">
+           <i class="flag-en">
+           </i>
+           English
+          </a>
+         </li>
+         <li>
+          <a class="static-nav-language-selector" href="#" lang="ko">
+           <i class="flag-ko">
+           </i>
+           íêµ­ì´
+          </a>
+         </li>
+        </ul>
+       </li>
+       <li class="divider-vertical">
+       </li>
+       <li>
+        <a href="/register">
+         <span class="lang">
+          <span class="lang-en">
+           Sign up
+          </span>
+          <span class="lang-ja">
+           æ°è¦ç»é²
+          </span>
+         </span>
+        </a>
+       </li>
+       <li class="divider-vertical">
+       </li>
+       <li>
+        <a href="/login">
+         <span class="lang">
+          <span class="lang-en">
+           Sign in
+          </span>
+          <span class="lang-ja">
+           ã­ã°ã¤ã³
+          </span>
+         </span>
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="modal hide fade" id="modal-contest-end" style="display:none;">
+   <div class="modal-header">
+    <a class="close" data-dismiss="modal">
+     Ã
+    </a>
+    <h3>
+     <span class="lang">
+      <span class="lang-en">
+       AtCoder Beginner Contest 039 has ended
+      </span>
+      <span class="lang-ja">
+       AtCoder Beginner Contest 039ãçµäºãã¾ãã
+      </span>
+     </span>
+    </h3>
+   </div>
+   <div class="modal-body">
+    <p>
+     <span class="lang">
+      <span class="lang-en">
+       Contest has ended
+      </span>
+      <span class="lang-ja">
+       ã³ã³ãã¹ãçµäºã§ã
+      </span>
+     </span>
+    </p>
+   </div>
+   <div class="modal-footer">
+    <a class="btn" data-dismiss="modal" href="#">
+     <span class="lang">
+      <span class="lang-en">
+       Close
+      </span>
+      <span class="lang-ja">
+       éãã
+      </span>
+     </span>
+    </a>
+   </div>
+  </div>
+  <div class="modal hide fade" id="modal-contest-begin" style="display:none;">
+   <div class="modal-header">
+    <a class="close" data-dismiss="modal">
+     Ã
+    </a>
+    <h3>
+     <span class="lang">
+      <span class="lang-en">
+       AtCoder Beginner Contest 039 is now opening
+      </span>
+      <span class="lang-ja">
+       AtCoder Beginner Contest 039ã®éå¬æéã«ãªãã¾ãã
+      </span>
+     </span>
+    </h3>
+   </div>
+   <div class="modal-body">
+    <p>
+     <span class="lang">
+      <span class="lang-en">
+       Contest has started
+      </span>
+      <span class="lang-ja">
+       åé¡ä¸è¦§ã®ãã¼ã¸ã¸ç§»åãã¦ãã ãã
+      </span>
+     </span>
+    </p>
+   </div>
+   <div class="modal-footer">
+    <a class="btn btn-primary" href="/assignments">
+     <span class="lang">
+      <span class="lang-en">
+       Go to the task list page
+      </span>
+      <span class="lang-ja">
+       åé¡ä¸è¦§ã®ãã¼ã¸ã¸ç§»å
+      </span>
+     </span>
+    </a>
+   </div>
+  </div>
+  <div class="container" id="outer-inner">
+   <h1 class="site-title">
+    AtCoder Beginner Contest 039
+   </h1>
+   <time id="contest-start-time" style="display:none">
+    2016/06/11 12:00:00 +0000
+   </time>
+   <time id="contest-end-time" style="display:none">
+    2016/06/11 14:00:00 +0000
+   </time>
+   <time id="server-current-time" style="display:none">
+    2016/06/11 12:04:30 +0000
+   </time>
+   <ul class="nav nav-tabs">
+    <li>
+     <a href="http://abc039.contest.atcoder.jp/">
+      <i class="icon-home">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Home
+       </span>
+       <span class="lang-ja">
+        ããããã¼ã¸
+       </span>
+       <span class="lang-ko">
+        í± íì´ì§
+       </span>
+      </span>
+     </a>
+    </li>
+    <li class="active">
+     <a href="http://abc039.contest.atcoder.jp/assignments">
+      <i class="icon-list-alt">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Tasks
+       </span>
+       <span class="lang-ja">
+        åé¡
+       </span>
+       <span class="lang-ko">
+        ë¬¸ì 
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="https://abc039.contest.atcoder.jp/submit">
+      <i class="icon-upload">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Submit
+       </span>
+       <span class="lang-ja">
+        æåº
+       </span>
+       <span class="lang-ko">
+        ì ì¶
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="http://abc039.contest.atcoder.jp/clarifications">
+      <i class="icon-question-sign">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Clarifications
+       </span>
+       <span class="lang-ja">
+        è³ªå
+       </span>
+       <span class="lang-ko">
+        ì§ë¬¸
+       </span>
+      </span>
+     </a>
+    </li>
+    <li class="dropdown">
+     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <b class="caret">
+      </b>
+      <i class="icon-download-alt">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Results
+       </span>
+       <span class="lang-ja">
+        çµæ
+       </span>
+       <span class="lang-ko">
+        ì±ì  ê²°ê³¼
+       </span>
+      </span>
+     </a>
+     <ul class="dropdown-menu">
+      <li>
+       <a href="https://abc039.contest.atcoder.jp/submissions/me">
+        <span class="lang">
+         <span class="lang-en">
+          My submissions
+         </span>
+         <span class="lang-ja">
+          èªåã®çµæ
+         </span>
+         <span class="lang-ko">
+          ìì ì ê²°ê³¼
+         </span>
+        </span>
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li>
+     <a href="/standings">
+      <i class="icon-user">
+      </i>
+      <span class="lang">
+       <span class="lang-en">
+        Standings
+       </span>
+       <span class="lang-ja">
+        é ä½è¡¨
+       </span>
+       <span class="lang-ko">
+        ììí
+       </span>
+      </span>
+     </a>
+    </li>
+   </ul>
+   <div class="alert alert-block" id="alert_box" style="display:none">
+    <a class="close" data-dismiss="alert">
+     Ã
+    </a>
+    <h4 class="alert-heading" id="alert_box_heading" style="display:none">
+    </h4>
+    <p id="alert_box_content">
+    </p>
+   </div>
+   <h2>
+    B - ã¨ã¼ã¸ã§ã³ãé«æ©å
+   </h2>
+   <hr/>
+   <p>
+    <span class="lang">
+     <span class="lang-en">
+      Time limit
+     </span>
+     <span class="lang-ja">
+      æéå¶é
+     </span>
+    </span>
+    : 2sec /
+    <span class="lang">
+     <span class="lang-en">
+      Stack limit
+     </span>
+     <span class="lang-ja">
+      ã¹ã¿ãã¯å¶é
+     </span>
+    </span>
+    : 256MB /
+    <span class="lang">
+     <span class="lang-en">
+      Memory limit
+     </span>
+     <span class="lang-ja">
+      ã¡ã¢ãªå¶é
+     </span>
+    </span>
+    : 256MB
+   </p>
+   <div id="task-statement">
+    <div id="task-statement">
+     <div class="part">
+      <section>
+       <h3>
+        åé¡æ
+       </h3>
+       <p>
+        TKå½ã®ã¨ã¼ã¸ã§ã³ãã§ããé«æ©åã¯ãã¨ããæ­£æ´æ°
+        <var>
+         X
+        </var>
+        ãéæ¨åããåãåãã¾ããã
+       </p>
+       <p>
+        ãããå®ã¯éæ¨åã¯AOå½ã®ã¹ãã¤ã§ãããæ¬æ¥æ¸¡ãã¹ãæ­£æ´æ°ã
+        <var>
+         4
+        </var>
+        ä¹ãããã®ãæ¸¡ãã¦ãã¾ããã
+       </p>
+       <p>
+        ã¤ã¾ããæ¬æ¥æ¸¡ãã¹ãæ­£æ´æ°ã
+        <var>
+         N
+        </var>
+        ã¨ããã¨ã
+        <var>
+         X = N^4
+        </var>
+        ã§ãã
+       </p>
+       <p>
+        é«æ©åã¯éå¸¸ã«åªç§ãªã®ã§ãããè¦ç ´ãã¾ããããè¨ç®ãè¦æãªã®ã§åã®æ­£æ´æ°ãã¤ã¾ã
+        <var>
+         N
+        </var>
+        ã¯ãªãã ã£ãã®ãããããã¾ããã
+       </p>
+       <p>
+        ãªã®ã§ä»£ããã«ããªãã
+        <var>
+         N
+        </var>
+        ãæ±ãã¦ãã ããã
+       </p>
+      </section>
+     </div>
+     <div class="part">
+      <section>
+       <h3>
+        å¶ç´
+       </h3>
+       <ul class="simple">
+        <li>
+         <var>
+          1 â¦ X â¦ 10^9
+         </var>
+        </li>
+        <li>
+         <var>
+          X = N^4
+         </var>
+         ã¨ãªã
+         <var>
+          N
+         </var>
+         ããã ä¸ã¤ã®ã¿å­å¨ãã
+        </li>
+       </ul>
+      </section>
+     </div>
+     <hr/>
+     <div class="io-style">
+      <div class="part">
+       <section>
+        <h3>
+         å¥å
+        </h3>
+        <p>
+         å¥åã¯ä»¥ä¸ã®å½¢å¼ã§æ¨æºå¥åããä¸ããããã
+        </p>
+        <pre><var>X</var>
+</pre>
+       </section>
+      </div>
+      <div class="part">
+       <section>
+        <h3>
+         åºå
+        </h3>
+        <p>
+         <var>
+          1
+         </var>
+         è¡ã«
+         <var>
+          N
+         </var>
+         ãåºåããã
+        </p>
+       </section>
+      </div>
+     </div>
+     <hr/>
+     <div class="part">
+      <section>
+       <h3>
+        å¥åä¾1
+       </h3>
+       <pre>1
+</pre>
+      </section>
+     </div>
+     <div class="part">
+      <section>
+       <h3>
+        åºåä¾1
+       </h3>
+       <pre>1
+</pre>
+      </section>
+     </div>
+     <hr/>
+     <div class="part">
+      <section>
+       <h3>
+        å¥åä¾2
+       </h3>
+       <pre>981506241
+</pre>
+      </section>
+     </div>
+     <div class="part">
+      <section>
+       <h3>
+        åºåä¾2
+       </h3>
+       <pre>177
+</pre>
+      </section>
+     </div>
+     <hr/>
+     <div class="part">
+      <section>
+       <h3>
+        å¥åä¾3
+       </h3>
+       <pre>390625
+</pre>
+      </section>
+     </div>
+     <div class="part">
+      <section>
+       <h3>
+        åºåä¾3
+       </h3>
+       <pre>25
+</pre>
+      </section>
+     </div>
+    </div>
+   </div>
+   <hr/>
+   <p>
+    <a class="btn btn-primary btn-large" href="/submit?task_id=1897">
+     <span class="lang">
+      <span class="lang-en">
+       Submit
+      </span>
+      <span class="lang-ja">
+       æåºãã
+      </span>
+     </span>
+    </a>
+   </p>
+  </div>
+  <footer>
+   <ul>
+    <li>
+     <a href="/tos">
+      <span class="lang">
+       <span class="lang-en">
+        Terms of service
+       </span>
+       <span class="lang-ja">
+        å©ç¨è¦ç´
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/privacy">
+      <span class="lang">
+       <span class="lang-en">
+        Privacy
+       </span>
+       <span class="lang-ja">
+        ãã©ã¤ãã·ã¼ããªã·ã¼
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/tutorial">
+      <span class="lang">
+       <span class="lang-en">
+        Tutorial
+       </span>
+       <span class="lang-ja">
+        ãã¥ã¼ããªã¢ã«
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/rules">
+      <span class="lang">
+       <span class="lang-en">
+        Rules
+       </span>
+       <span class="lang-ja">
+        ã«ã¼ã«
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/glossary">
+      <span class="lang">
+       <span class="lang-en">
+        Glossary
+       </span>
+       <span class="lang-ja">
+        ç¨èªé
+       </span>
+      </span>
+     </a>
+    </li>
+    <li>
+     <a href="/faq">
+      <span class="lang">
+       <span class="lang-en">
+        FAQ
+       </span>
+       <span class="lang-ja">
+        ããããè³ªå
+       </span>
+      </span>
+     </a>
+    </li>
+   </ul>
+   <p id="copyright">
+    © 2015 AtCoder Inc. All rights reserved.
+   </p>
+  </footer>
+  <p id="fixed-server-timer" style="display: none;">
+  </p>
+  <script src="/js/bootstrap.min.js">
+  </script>
+  <script src="/js/prettify.js">
+  </script>
+  <script src="/js/lang-vb.js">
+  </script>
+  <script src="/js/lang-hs.js">
+  </script>
+  <script src="/js/varmath.js">
+  </script>
+  <script src="/js/script.js?v=2">
+  </script>
+ </body>
+</html>
+

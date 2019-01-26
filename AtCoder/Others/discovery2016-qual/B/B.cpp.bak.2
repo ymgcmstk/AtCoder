@@ -1,0 +1,120 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T> void input_array(T * p){
+  int a = sizeof(p) / sizeof(p[0]);
+  rep(i, a){
+    cin >> p[i];
+  }
+}
+
+void input_vector(vector<int> * p, int a){
+  rep(i, a){
+    int input;
+    cin >> input;
+    p -> push_back(input);
+  }
+}
+
+template <typename T>
+void output(T a, int precision) {
+  if (precision > 0) {
+    cout << setprecision(precision)  << a << "\n";
+  } else {
+    cout << a << "\n";
+  }
+}
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = false;
+
+typedef pair<int, int> pii;
+
+int calc_loop(int start, vector<int> A) {
+  int ans = 0;
+  vector<pii> B;
+  B.push_back(make_pair(A[start]-1, start));
+  repd(i, start+1, A.size()) B.push_back(make_pair(A[i], i));
+  rep(i, start) B.push_back(make_pair(A[i], i));
+  sort(B.begin(), B.end());
+  if (B.size() != A.size()) cout << "SOMETHING WRONG" << endl;
+  int bef_ind = B[0].second;
+  int cur_num = B[0].first;
+  vector<int> cur_inds;
+  int next_ind;
+  repd(i, 1, B.size()) {
+    if (cur_num == B[i].first) {
+      cur_inds.push_back(B[i].second);
+    } else if (cur_num < B[i].first) {
+      if (cur_inds.size() > 1) {
+        rep(j, cur_inds.size()) cur_inds[j] = (cur_inds[j] + (A.size() - start)) % A.size();
+        sort(cur_inds.begin(), cur_inds.end());
+        next_ind = (cur_inds[cur_inds.size()-1] + start) % A.size();
+        if (next_ind < bef_ind) ans++;
+        bef_ind = next_ind;
+      } else {
+        bef_ind = B[i].second;
+        cur_inds = vector<int>(1);
+        cur_inds[0] = B[i].first;
+      }
+      if (bef_ind > B[i].second) ans++;
+    }
+  }
+  if (bef_ind >= start) ans++;
+  return ans;
+}
+
+int main() {
+  int N;
+  cin >> N;
+  vector<int> A(N);
+  int min_val = MOD;
+  vector<int> min_vec;
+
+  rep(i, N) {
+    cin >> A[i];
+    if (A[i] < min_val) {
+      min_val = A[i];
+      min_vec = vector<int>(1);
+      min_vec[0] = i;
+    } else if (A[i] == min_val) min_vec.push_back(i);
+  }
+
+  int ans = 2 * N;
+  rep(i, min_vec.size()) {
+    ans = min(ans, calc_loop(min_vec[i], A));
+  }
+  cout << ans << endl;
+  return 0;
+}

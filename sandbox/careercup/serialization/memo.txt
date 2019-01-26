@@ -1,0 +1,2 @@
+http://www.careercup.com/question?id=5684077627703296
+Write 2 functions to serialize and deserialize an array of strings. strings can contain any unicode character. Do not worry about string overflow.

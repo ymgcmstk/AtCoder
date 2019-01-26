@@ -1,0 +1,7 @@
+3 2
+---
+Impossible
+---
+10000 10000
+---
+Impossible

@@ -1,0 +1,11 @@
+2
+push 1 a
+push 1 b
+push 1 c
+push 2 z
+pop 1
+move 1 2
+pop 2
+pop 2
+pop 1
+quit

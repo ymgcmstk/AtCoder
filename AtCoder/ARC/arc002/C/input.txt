@@ -1,0 +1,8 @@
+4
+ABXY
+---
+13
+ABABABABXBXBX
+---
+8
+AABBAABB

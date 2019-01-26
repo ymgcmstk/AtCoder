@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://arc052.contest.atcoder.jp/tasks/arc052_c -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>C:  高橋くんと不思議な道
+ - AtCoder Regular Contest 052 | AtCoder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="
+">
+    <meta name="keyword" content="AtCoder,アットコーダー,あっとこーだー,プログラミングコンテスト
+">
+    <meta name="author" content="Atcoder">
+    <meta name="copyright" content="Copyright (C) 2012 Atcoder">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="./C_files/all.css">
+    <link rel="stylesheet" type="text/css" href="./C_files/print.css" media="print">
+        <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" async="" src="./C_files/ga.js"></script><script src="./C_files/jquery.js"></script>
+    <link rel="shortcut icon" href="http://arc052.contest.atcoder.jp/img/favicon.ico">
+
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30554866-3']);
+  _gaq.push(['_setDomainName', 'atcoder.jp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>    
+    <!--[if lt IE 9]><style>.navbar-fixed-top{ position: relative!important; }</style><![endif]-->
+
+  </head>
+
+
+  <body>
+          <div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+              <a class="brand" href="http://arc052.contest.atcoder.jp/"><span class="contest-name">AtCoder Regular Contest 052</span><span class="bland-small"><time class="timezone-fixed">2016/04/30 21:00:00</time> ~ <time class="timezone-fixed">2016/04/30 22:30:00</time></span></a>
+      
+      <div class="nav-collapse">
+                <ul class="nav">
+          <li class="divider-vertical"></li>
+          <li><a href="http://atcoder.jp/" target="_blank">AtCoderへ戻る</a></li>
+        </ul>
+                            <ul id="nav-right-logined" class="nav pull-right">
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+            <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog icon-white"></i> <span id="nav-right-username">gdgdgutta(contestant)</span><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="http://arc052.contest.atcoder.jp/me">マイプロフィール</a></li>
+                                	<li><a href="http://arc052.contest.atcoder.jp/settings"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Settings</span><span class="lang-ja lang-child">設定</span></span></a></li>
+                	                	<li><a href="http://arc052.contest.atcoder.jp/settings/password"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Change password</span><span class="lang-ja lang-child">パスワードの変更</span></span></a></li>
+                	<li class="divider"></li>
+                                <li><a href="http://arc052.contest.atcoder.jp/logout"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign out</span><span class="lang-ja lang-child">ログアウト</span></span></a></li>
+             </ul>
+            </li>
+          </ul>
+          <ul id="nav-right-not-login" class="nav pull-right" style="display:none;">
+            <li class="dropdown">
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="ja" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown">
+                <i class="flag-ja"></i> 日本語 <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="en" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-en"></i> English <b class="caret"></b>
+              </a>
+              <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" lang="ko" class="dropdown-toggle static-nav-language-selector-dropdown" data-toggle="dropdown" style="display:none;">
+                <i class="flag-ko"></i> 한국어 <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li> <a lang="ja" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-ja"></i> 日本語</a></li>
+                <li> <a lang="en" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-en"></i> English</a></li>
+                <li> <a lang="ko" class="static-nav-language-selector" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#"><i class="flag-ko"></i> 한국어</a></li>
+              </ul>
+            </li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://arc052.contest.atcoder.jp/register"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign up</span><span class="lang-ja lang-child">新規登録</span></span></a></li>
+                        <li class="divider-vertical"></li>
+            <li><a href="http://arc052.contest.atcoder.jp/login"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Sign in</span><span class="lang-ja lang-child">ログイン</span></span></a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal hide fade" style="display:none;" id="modal-contest-end">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">AtCoder Regular Contest 052 has ended</span><span class="lang-ja lang-child">AtCoder Regular Contest 052が終了しました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Contest has ended</span><span class="lang-ja lang-child">コンテスト終了です</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://arc052.contest.atcoder.jp/tasks/arc052_c#" class="btn" data-dismiss="modal"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Close</span><span class="lang-ja lang-child">閉じる</span></span></a>
+  </div>
+</div>
+
+<div class="modal hide fade" style="display:none;" id="modal-contest-begin">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">AtCoder Regular Contest 052 is now opening</span><span class="lang-ja lang-child">AtCoder Regular Contest 052の開催時間になりました</span></span></h3>
+  </div>
+  <div class="modal-body">
+    <p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Contest has started</span><span class="lang-ja lang-child">問題一覧のページへ移動してください</span></span></p>
+  </div>
+  <div class="modal-footer">
+    <a href="http://arc052.contest.atcoder.jp/assignments" class="btn btn-primary"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Go to the task list page</span><span class="lang-ja lang-child">問題一覧のページへ移動</span></span></a>
+  </div>
+</div>
+    
+    <div id="outer-inner" class="container">
+      <h1 class="site-title">
+          AtCoder Regular Contest 052
+      </h1>
+                      <time style="display:none" id="contest-start-time" class="timezone-fixed">2016/04/30 21:00:00</time>
+        <time style="display:none" id="contest-end-time" class="timezone-fixed">2016/04/30 22:30:00</time>
+        <time style="display:none" id="server-current-time" class="timezone-fixed">2016/04/30 21:01:54</time>
+
+            
+      <ul class="nav nav-tabs">
+                            <li><a href="http://arc052.contest.atcoder.jp/"><i class="icon-home"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Home</span><span class="lang-ja lang-child">トップページ</span><span class="lang-ko lang-child hidden-lang">톱 페이지</span></span></a></li>
+                                          <li class="active"><a href="http://arc052.contest.atcoder.jp/assignments"><i class="icon-list-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Tasks</span><span class="lang-ja lang-child">問題</span><span class="lang-ko lang-child hidden-lang">문제</span></span></a></li>
+                                          <li><a href="https://arc052.contest.atcoder.jp/submit"><i class="icon-upload"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Submit</span><span class="lang-ja lang-child">提出</span><span class="lang-ko lang-child hidden-lang">제출</span></span></a></li>
+                                          <li><a href="http://arc052.contest.atcoder.jp/clarifications"><i class="icon-question-sign"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Clarifications</span><span class="lang-ja lang-child">質問</span><span class="lang-ko lang-child hidden-lang">질문</span></span></a></li>
+                                          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="http://arc052.contest.atcoder.jp/tasks/arc052_c#">
+              <b class="caret"></b><i class="icon-download-alt"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Results</span><span class="lang-ja lang-child">結果</span><span class="lang-ko lang-child hidden-lang">채점 결과</span></span>
+            </a>
+            <ul class="dropdown-menu">
+                              <li><a href="https://arc052.contest.atcoder.jp/submissions/me"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">My submissions</span><span class="lang-ja lang-child">自分の結果</span><span class="lang-ko lang-child hidden-lang">자신의 결과</span></span></a></li>
+                          </ul>
+          </li>
+                                          <li><a href="http://arc052.contest.atcoder.jp/standings"><i class="icon-user"></i> <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Standings</span><span class="lang-ja lang-child">順位表</span><span class="lang-ko lang-child hidden-lang">순위표</span></span></a></li>
+                      </ul>
+        <div id="alert_box" class="alert alert-block" style="display:none">
+  <a class="close" data-dismiss="alert">×</a>
+  <h4 id="alert_box_heading" class="alert-heading" style="display:none"></h4>
+  <p id="alert_box_content"></p>
+</div>
+
+      <h2>C -  高橋くんと不思議な道</h2>
+<hr>
+<p><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Time limit</span><span class="lang-ja lang-child">時間制限</span></span> : 4sec / <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Stack limit</span><span class="lang-ja lang-child">スタック制限</span></span> : 256MB / <span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Memory limit</span><span class="lang-ja lang-child">メモリ制限</span></span> : 256MB</p>
+
+<div id="task-statement">
+  <section>
+<h3>問題文</h3>
+<p>
+町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> から町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>N</i><span style="padding:0.25ex;"></span>−<span style="padding:0.25ex;"></span>1</span></var> までの <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>N</i></span></var> 個の町があります。<br>
+これらは <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>M</i></span></var> 個の双方向に行き来可能な道で結ばれています。<br>
+<br>
+道にはタイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i></span></var> とタイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i></span></var> の二種類の道があります。<br>
+タイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i></span></var> の道を通ると、コストが <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1</span></var> かかります。<br>
+タイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i></span></var> の道を通るとき、コストが (今まで通ったタイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i></span></var> の道の本数) <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><span style="padding:0.25ex;"></span>+<span style="padding:0.25ex;"></span>1</span></var> かかります。<br>
+<br>
+ただし、<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>i</i></span></var> (<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>i</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>M</i></span></var>) 本目の道は、町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i><sub style="font-size:65%"><i>i</i></sub></span></var> と町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i><sub style="font-size:65%"><i>i</i></sub></span></var> を結び、<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>C</i><sub style="font-size:65%"><i>i</i></sub></span></var> が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> のときはタイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i></span></var>、<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>C</i><sub style="font-size:65%"><i>i</i></sub></span></var> が <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1</span></var> のときはタイプ <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i></span></var> とします。<br>
+<br>
+全ての町において、町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> からその町までの移動にかかる最小コストをそれぞれ求めてください。<br>
+ただし、町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> から到達できない町は存在しないものとします。<br>
+</p>
+</section>
+<section>
+<h3>制約</h3>
+<ul>
+<li>与えられる数字はすべて整数</li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>N</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>10<sup style="font-size:65%">4</sup></span></var></li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>M</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>10<sup style="font-size:65%">5</sup></span></var></li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>A</i><sub style="font-size:65%"><i>i</i></sub>,<i>B</i><sub style="font-size:65%"><i>i</i></sub><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>N</i><span style="padding:0.25ex;"></span>−<span style="padding:0.25ex;"></span>1</span></var></li>
+<li><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>C</i><sub style="font-size:65%"><i>i</i></sub><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span>1</span></var></li>
+</ul>
+</section>
+<hr>
+<div class="io-style">
+<section>
+<h3>入力</h3>
+<p>入力は以下の形式で標準入力から与えられる。</p>
+<pre><var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>N</i></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>M</i></span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>C</i><sub style="font-size:65%">1</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i><sub style="font-size:65%">1</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i><sub style="font-size:65%">1</sub></span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>C</i><sub style="font-size:65%">2</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i><sub style="font-size:65%">2</sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i><sub style="font-size:65%">2</sub></span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">:</span></var>
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>C</i><sub style="font-size:65%"><i>M</i></sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>A</i><sub style="font-size:65%"><i>M</i></sub></span></var> <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>B</i><sub style="font-size:65%"><i>M</i></sub></span></var>
+</pre>
+</section>
+<section>
+<h3>出力</h3>
+<p>
+出力は <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>N</i></span></var> 行からなる。
+<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>i</i></span></var> 行目 (<var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">1<span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>i</i><span style="padding:0.25ex;"></span>≤<span style="padding:0.25ex;"></span><i>N</i></span></var>)には、町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;">0</span></var> から町 <var><span style="font-family: &#39;Times New Roman&#39;, Times, Georgia, serif;font-style:normal;color:#000;letter-spacing:0.15ex;font-size:110%;"><i>i</i><span style="padding:0.25ex;"></span>−<span style="padding:0.25ex;"></span>1</span></var> への移動でかかるコストを出力せよ。
+</p>
+</section>
+</div>
+<hr>
+<section>
+<h3>入力例 1</h3>
+<pre>3 3
+0 0 1
+1 1 2
+1 2 0
+</pre>
+</section>
+<section>
+<h3>出力例 1</h3>
+<pre>0
+1
+1
+</pre>
+</section>
+<hr>
+<section>
+<h3>入力例 2</h3>
+<pre>7 8
+1 0 1
+1 1 2
+1 2 5
+1 5 6
+0 1 3
+0 3 4
+0 4 5
+0 2 6
+</pre>
+</section>
+<section>
+<h3>出力例 2</h3>
+<pre>0
+1
+3
+2
+3
+4
+4
+</pre>
+</section>
+<hr>
+<section>
+<h3>入力例 3</h3>
+<pre>8 9
+0 0 1
+0 1 2
+0 2 3
+0 5 6
+0 6 7
+1 1 3
+1 3 4
+1 4 5
+1 5 7
+</pre>
+</section>
+<section>
+<h3>出力例 3</h3>
+<pre>0
+1
+2
+2
+4
+6
+7
+8
+</pre>
+</section>
+</div>
+
+
+<hr>
+<p><a class="btn btn-primary btn-large" href="http://arc052.contest.atcoder.jp/submit?task_id=1874"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Submit</span><span class="lang-ja lang-child">提出する</span></span></a></p>
+
+    </div>
+
+    <footer>
+      <ul>
+  <li><a href="http://arc052.contest.atcoder.jp/tos"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Terms of service</span><span class="lang-ja lang-child">利用規約</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/privacy"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Privacy</span><span class="lang-ja lang-child">プライバシーポリシー</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/tutorial"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Tutorial</span><span class="lang-ja lang-child">チュートリアル</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/rules"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Rules</span><span class="lang-ja lang-child">ルール</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/glossary"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">Glossary</span><span class="lang-ja lang-child">用語集</span></span></a></li>
+  <li><a href="http://arc052.contest.atcoder.jp/faq"><span class="lang lang-selected"><span class="lang-en lang-child hidden-lang">FAQ</span><span class="lang-ja lang-child">よくある質問</span></span></a></li>
+</ul>
+<p id="copyright">© 2015 AtCoder Inc. All rights reserved.</p>
+    </footer>
+
+    <p id="fixed-server-timer">残り時間<br>01:27:49</p>
+
+        <script src="./C_files/bootstrap.min.js"></script>
+    <script src="./C_files/prettify.js"></script>
+    <script src="./C_files/lang-vb.js"></script>
+    <script src="./C_files/lang-hs.js"></script>
+    <script src="./C_files/varmath.js"></script>
+    <script src="./C_files/script.js"></script>
+  
+
+</body></html>

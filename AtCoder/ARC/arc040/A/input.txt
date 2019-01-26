@@ -1,0 +1,14 @@
+4
+R.RB
+RR.B
+BRBB
+RRB.
+---
+2
+..
+..
+---
+3
+BRB
+RBR
+BRB

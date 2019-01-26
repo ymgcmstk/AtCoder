@@ -1,0 +1,12 @@
+cout << "? " << 1 << " " << 2 << endl;
+cin >> dist;
+---
+Console.WriteLine("? {0} {1}", 1, 2);
+dist = int.Parse(Console.ReadLine());
+---
+echo "? ", 1, " ", 2, PHP_EOL;
+$dist = trim(fgets(STDIN));
+---
+$|=1;
+print "? ", 1, " ", 2, "\n";
+$dist = <>;

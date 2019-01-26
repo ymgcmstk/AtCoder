@@ -1,0 +1,8 @@
+abcde
+8
+---
+aeiou
+22
+---
+vwxyz
+25

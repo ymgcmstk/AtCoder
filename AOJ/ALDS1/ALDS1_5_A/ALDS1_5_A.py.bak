@@ -1,0 +1,49 @@
+# -*- coding:utf-8 -*-
+import sys
+
+def split_int(string):
+    return [int(x) for x in string.split()]
+
+def get_line(integer=False):
+    string = sys.stdin.readline().rstrip()
+    if integer:
+        return split_int(string)
+    else:
+        return string
+
+def DP(TorF, N, A):
+    for i in range(N):
+        for j in range(len(TorF)-A[i]-1, -1, -1):
+            if TorF[j]:
+                TorF[j+A[i]] = True
+    return TorF
+
+def ESearch(TorF, A, cur_sum, cur=0):
+    if cur == len(A):
+        return TorF
+    TorF[cur_sum+A[cur]] = True
+    TorF = ESearch(TorF, A, cur_sum, cur+1)
+    TorF = ESearch(TorF, A, cur_sum+A[cur], cur+1)
+    return TorF
+
+def main():
+    N = int(get_line())
+    A = get_line(integer=True)
+    Q = int(get_line())
+    M = get_line(integer=True)
+
+    TorF = range(2001)
+    TorF = [False] * 2001
+    TorF[0] = True
+
+    # TorF = DP(TorF, N, A)
+    TorF = ESearch(TorF, A, 0, 0)
+    for i in M:
+        if TorF[i]:
+            print 'yes'
+        else:
+            print 'no'
+
+
+if __name__ == '__main__':
+    main()

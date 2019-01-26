@@ -1,0 +1,71 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T> void input_array(T * p){
+  int a = sizeof(p) / sizeof(p[0]);
+  rep(i, a){
+    cin >> p[i];
+  }
+}
+
+void input_vector(vector<int> * p, int a){
+  rep(i, a){
+    int input;
+    cin >> input;
+    p -> push_back(input);
+  }
+}
+
+template <typename T>
+void output(T a, int precision) {
+  if (precision > 0) {
+    cout << setprecision(precision)  << a << "\n";
+  } else {
+    cout << a << "\n";
+  }
+}
+
+int main() {
+  int A, B, N;
+  cin >> A >> B >> N;
+  // source code
+  int most_small;
+  int least = 1;
+  int org_A = A;
+  int org_B = B;
+  if (A == B) {
+    least = A;
+  } else {
+    most_small = abs(A-B);
+    while (!(org_A % most_small == 0 && org_B % most_small == 0)) {
+      if (A > B) {
+        A -= B;
+      } else {
+        B -= A;
+      }
+      most_small = abs(A-B);
+    }
+    least = A * B / most_small;
+  }
+  cout << ceil(float(N) / float(least)) * least << endl;
+  return 0;
+}

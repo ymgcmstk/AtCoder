@@ -1,0 +1,55 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = false;
+
+int main() {
+  int N;
+  string A, B;
+  cin >> N;
+  rep(i, N) {
+    cin >> A >> B;
+    int buff[A.size()+1][B.size()+1];
+    rep(j, A.size() + 1) fill(buff[j], buff[j] + B.size() + 1, 0);
+    repd(j, 1, A.size() + 1) {
+      repd(k, 1, B.size() + 1) {
+        if (A[j-1] == B[k-1]) buff[j][k] = buff[j-1][k-1] + 1;
+        buff[j][k] = max(buff[j][k-1], max(buff[j-1][k], buff[j][k]));
+      }
+    }
+    cout << buff[A.size()][B.size()] << endl;
+  }
+  return 0;
+}

@@ -1,0 +1,80 @@
+// This template is based on http://ctylim.hatenablog.com/entry/2015/08/30/191553, provided by ctylim.
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <set>
+#include <map>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <cmath>
+#include <queue>
+#include <stack>
+#include <utility>
+
+#define repd(i,a,b) for (int i=(a);i<(b);i++)
+#define mrepd(i,a,b) for (int i=(b-1);i>=(a);i--)
+#define rep(i,n) repd(i,0,n)
+#define mrep(i,n) mrepd(i,0,n)
+#define LL long long
+#define MOD 1000000007
+using namespace std;
+
+template <typename T>
+void show_array(T arr[]) {
+  rep(i, sizeof(*arr)/sizeof(arr[0])) cout << arr[i] << ' ';
+  cout << endl;
+}
+
+
+template <typename T>
+void show_vec(vector<T> vec) {
+  rep(i, vec.size()) cout << vec[i] << ' ';
+  cout << endl;
+}
+
+bool debug_mode = false;
+
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+
+int length[100003];
+
+int main() {
+  fill(length, length+100003, 0);
+  int N;
+  cin >> N;
+  int a, b;
+  vpii boxes;
+  rep(i, N) {
+    cin >> a >> b;
+    if (a > b) boxes.push_back(make_pair(a, b));
+    else boxes.push_back(make_pair(b, a));
+  }
+  sort(boxes.begin(), boxes.end(), greater<pii>());
+  if (debug_mode) rep(i, boxes.size()) cout << boxes[i].first << ' ' << boxes[i].second << endl;
+  int cur_num = 1;
+  int cur_ind = 0;
+  int cur_min = boxes[0].second;
+  while (cur_ind < boxes.size()) {
+    while (boxes[cur_ind].first > cur_min) {
+      cur_min = max(boxes[cur_ind].second, cur_min);
+      cur_ind++;
+      if (cur_ind == N) {
+        cout << cur_num << endl;
+        return 0;
+      }
+    }
+    while (boxes[cur_ind].first == cur_min) {
+      cur_ind++;
+      if (cur_ind == N) {
+        cout << cur_num << endl;
+        return 0;
+      }
+    }
+    cur_min = boxes[cur_ind].second;
+    cur_num++;
+  }
+
+  return 0;
+}

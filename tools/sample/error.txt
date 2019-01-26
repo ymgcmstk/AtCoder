@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "prepare.py", line 122, in <module>
+    main()
+  File "prepare.py", line 74, in main
+    inputs, outputs = soup_prets(url + url_tail[1:], session)
+  File "prepare.py", line 109, in soup_prets
+    for pretag in h3tag.find_all_next("pre", attrs={"class": "prettyprint"})[::2]:
+UnboundLocalError: local variable 'h3tag' referenced before assignment
