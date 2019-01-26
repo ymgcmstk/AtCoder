@@ -80,4 +80,5 @@ def main():
     browser.quit()
 
 if __name__ == '__main__':
+    print 'User name:', USER_NAME
     main()

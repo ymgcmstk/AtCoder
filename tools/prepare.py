@@ -11,6 +11,7 @@ import sys
 import os
 import re
 from settings import *
+set_debugger()
 
 if USE_REQUESTS:
     try:
@@ -58,6 +59,7 @@ def main():
 
     soup  = BeautifulSoup(page, 'html.parser')
     if "Join in" in str(soup):
+        textdump('test.txt', [str(soup)])
         print "Please join in the contest."
         exit()
     if not "Time limit" in str(soup):
@@ -72,7 +74,8 @@ def main():
         mkdir_if_missing(q_path)
         url_tail = qlinktd.find('a').get('href')
         if not (os.path.exists(os.path.join(q_path, INPUT_FILE_NAME)) and os.path.exists(os.path.join(q_path, OUTPUT_FILE_NAME))):
-            inputs, outputs = soup_prets(url + url_tail[1:], session)
+            pickle_path = os.path.join(q_path, PICKLE_FILE_NAME)
+            inputs, outputs = soup_prets(url + url_tail[1:], session, pickle_path)
             f_path = os.path.join(q_path, INPUT_FILE_NAME)
             f = open(f_path, "w")
             f.write(inputs)
@@ -93,15 +96,20 @@ def copy_templates(q_path, index):
         if not os.path.exists(template_file):
             shutil.copyfile(os.path.join(TEMPLATE_DIR, org_file), template_file)
 
-def soup_prets(url, session):
+def soup_prets(url, session, pickle_path):
     if USE_REQUESTS:
         page = session.get(url).text
     else:
         page = urlopen(url)
     soup = BeautifulSoup(page, 'html.parser')
+    pickledump(pickle_path, soup)
     inputs = []
     outputs = []
     for _h3tag in soup.find_all('h3'):
+        # print predict_charset(' '.join(_h3tag.strings))
+        # print _h3tag.strings
+        # import ipdb
+        # ipdb.set_trace()
         if ' '.join(_h3tag.strings).replace(' ', '') == FIRST_INPUT_EXAMPLE:
             h3tag = _h3tag
             break
@@ -109,7 +117,10 @@ def soup_prets(url, session):
         inputs.append(pretag.string.strip().replace(chr(13), ''))
     if len(inputs) == 0:
         for pretag in h3tag.find_all_next("pre")[::2]:
-            inputs.append(pretag.string.strip().replace(chr(13), ''))
+            try:
+                inputs.append(pretag.string.strip().replace(chr(13), ''))
+            except:
+                inputs.append(pretag.text.strip().replace(chr(13), ''))
     for pretag in h3tag.find_all_next("pre", attrs={"class": "prettyprint"})[1::2]:
         outputs.append(pretag.string.strip().replace(chr(13), ''))
     if len(outputs) == 0:

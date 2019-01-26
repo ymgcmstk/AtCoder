@@ -29,7 +29,7 @@ except:
         return
 
 def set_debugger(send_email=False, error_func=None):
-    if hasattr(sys.excepthook, '__name__') and sys.excepthook.__name__ == 'apport_excepthook':
+    if hasattr(sys.excepthook, '__name__') and sys.excepthook.__name__ in ['apport_excepthook', 'excepthook']:
         from IPython.core import ultratb
         class MyTB(ultratb.FormattedTB):
             def __init__(self, mode='Plain', color_scheme='Linux', call_pdb=False,
@@ -351,7 +351,7 @@ def predict_charset (targ_str):
         try:
             targ_str.decode(targ_charset)
             return targ_charset
-        except UnicodeDecodeError:
+        except UnicodeEncodeError:
             pass
     return None
 

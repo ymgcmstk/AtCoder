@@ -1,14 +1,14 @@
 # -*- coding:utf-8 -*-
 import sys
 
-def split_int(string):
-    return [int(x) for x in string.split()]
+def split_with_func(string, func):
+    return [func(x) for x in string.split()]
 
-def get_line(integer=False):
+def get_line(func=None):
     string = sys.stdin.readline().rstrip()
-    if integer:
-        return split_int(string)
+    if func is not None:
+        return split_with_func(string, func)
     else:
         return string
 
-N = get_line()
+N = get_line(int)

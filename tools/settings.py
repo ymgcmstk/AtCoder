@@ -10,6 +10,7 @@ TEMPLATE_DIR     = os.path.join(TOOL_DIR, 'templates')
 TEMPLATES        = {'py': 'template.py', CPP_EXT: 'template.%s' % CPP_EXT}
 INPUT_FILE_NAME  = 'input.txt'
 OUTPUT_FILE_NAME = 'output.txt'
+PICKLE_FILE_NAME = '.html.pickle'
 DELIMITER        = '---'
 USE_REQUESTS     = True
 
@@ -27,6 +28,11 @@ FIRST_INPUT_EXAMPLE = u'入力例1'
 # Auto-submission Settings for AtCoder
 USER_NAME = 'gdgdgutta'
 PASSWORD  = 'masataka'
+
+if 'indeed' in os.getcwd():
+    USER_NAME = 'indeed-2016-125'
+    PASSWORD  = 'd48b71d2'
+
 EXT2LANG  = {'py': 'Python (2.7.3)', CPP_EXT: 'C++11 (GCC 4.8.1)'}
 BROWSER   = 'chrome'
 
